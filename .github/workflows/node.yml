@@ -1,0 +1,26 @@
+name: Node
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  lint_and_typecheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: prepare pnpm
+        run: npm i -g pnpm
+      - name: pnpm i
+        run: pnpm i
+      - name: build
+        run: pnpm build
