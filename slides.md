@@ -1,6 +1,6 @@
 ---
 theme: apple-basic
-highlighter: shikiji
+highlighter: shiki
 lineNumbers: true
 title: Abusing ActivityPub to federated game servers
 info: |
@@ -19,7 +19,7 @@ A deeper look into the Social Web.
 
 <div class="absolute bottom-10">
   <span class="font-700">
-    Sebastian Di Luzio, 2024
+   iu.tech 2024 - Sebastian Di Luzio
   </span>
 </div>
 
