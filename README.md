@@ -1,5 +1,10 @@
 # Welcome to my talk on the iu.tech 2024!
 
+This talk focuses on the following repository:
+https://github.com/maybeanerd/selfhosted-api-trader-game
+
+It's also about the social web and ActivityPub in general.
+
 ## Development
 
 To start the slide show:
