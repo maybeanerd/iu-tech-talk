@@ -15,6 +15,6 @@
     "playwright-chromium": "1.44.1"
   },
   "dependencies": {
-    "slidev-theme-geist": "0.8.1"
+    "@slidev/theme-apple-basic": "0.25.1"
   }
 }
