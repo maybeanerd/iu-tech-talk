@@ -1,10 +1,11 @@
 ---
-theme: apple-basic
+theme: eloc
 highlighter: shiki
 lineNumbers: true
-title: Abusing ActivityPub to federated game servers
+title: Abusing ActivityPub to federate game servers
 info: |
-  Abusing ActivityPub to federated game servers
+  Abusing ActivityPub to federate game servers
+  A deeper look into what powers the Social Web.
 drawings:
   persist: false
 mdc: true
@@ -13,9 +14,9 @@ transition: slide-left
 layout: intro
 ---
 
-# Abusing ActivityPub to federated game servers
+# Abusing ActivityPub to federate game servers
 
-A deeper look into the Social Web.
+A deeper look into what powers the Social Web.
 
 <div class="absolute bottom-10">
   <span class="font-700">
@@ -28,6 +29,48 @@ A deeper look into the Social Web.
     hi there:)
   </span>
 </div>
+
+---
+
+# Who am I?
+
+---
+
+# Whats this social web thing?
+It's also called the Fediverse.
+
+
+---
+
+# What do game servers have to do with this?
+Federation inspired this game.
+
+It's more about playing around than building an actually enjoyable game for many people.
+
+It's also about getting tech savvy people to think about the social web as well as build their own UX for the game server.
+
+---
+
+# Gameplay TLDR
+
+---
+
+# Original Federation
+
+
+---
+
+# Whats this ActivityPub thing?
+
+It's a protocol for federated social networks.
+It's a web standard.
+It powers the fediverse.
+
+---
+
+# header
+
+
 
 ---
 layout: two-cols-header
