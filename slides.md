@@ -138,6 +138,7 @@ But it would be cool.
 ---
 
 # JSON-LD
+
 JSON for Linking Data
 
 JSON-LD is a lightweight Linked Data format.
@@ -147,13 +148,45 @@ Linked Data empowers people that publish and use information on the Web.
 
 It is a way to create a network of standards-based, machine-readable data across Web sites.
 
+
+---
+layout: two-cols-header
+---
+::left::
+Example JSON-LD object:
 ```json
 {
-  "@context": "https://json-ld.org/contexts/person.jsonld",
-  "@id": "http://dbpedia.org/resource/John_Lennon",
+  "@context": 
+    "https://json-ld.org/contexts/person.jsonld",
+  "@id": 
+    "http://dbpedia.org/resource/John_Lennon",
   "name": "John Lennon",
   "born": "1940-10-09",
-  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+  "spouse": 
+    "http://dbpedia.org/resource/Cynthia_Lennon"
+}
+```
+::right::
+
+https://json-ld.org/contexts/person.jsonld:
+
+```json
+{
+  "@context": {
+      "Person": "http://xmlns.com/foaf/0.1/Person",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "name": "http://xmlns.com/foaf/0.1/name",
+      "born":
+      {
+         "@id": "http://schema.org/birthDate",
+         "@type": "xsd:date"
+      },
+      "spouse":
+      {
+         "@id": "http://schema.org/spouse",
+         "@type": "@id"
+      },
+   }
 }
 ```
 
