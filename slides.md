@@ -14,7 +14,6 @@ mdc: true
 transition: slide-left
 defaults:
   layout: default
-  backgroundSize: contain
 
 layout: intro
 ---
