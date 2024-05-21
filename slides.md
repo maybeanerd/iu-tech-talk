@@ -66,13 +66,6 @@ image: /images/fedidb-software-distribution.png
 - Became widely popular when Elon Musk bought Twitter and started killing it
 - The largest piece of software in the Fediverse
 
-<!-- TODO figure this out -->
-<style>
-div {
-  background-size: contain;
-  }
-</style>
-
 ---
 
 # What do game servers have to do with this?
