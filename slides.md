@@ -119,10 +119,44 @@ But it would be cool.
 
 # Whats this ActivityPub thing?
 
-- ActivityPub is an open, decentralized social networking protocol based on Activity Streams and JSON-LD
-- It provides a client/server API for creating, updating, and deleting content, as well as a federated server-to-server API for delivering notifications and content
+- ActivityPub is an open, decentralized social networking protocol based on ActivityStreams and JSON-LD
+- It provides a client/server API for managing content, as well as a federated server-to-server API for delivering notifications and content
 - It's a W3C standard. If you don't know who they are, they are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and many more
 - It's what powers the Fediverse
+
+
+---
+
+# ActivityStreams (2.0)
+
+- Also a W3C standard
+- Specifies underlying schemata used in ActivityPub
+- Includes things like: Object, Actor, Activity, Collection, Link
+- is implemented as serialized JSON-LD
+
+
+---
+
+# JSON-LD
+JSON for Linking Data
+
+JSON-LD is a lightweight Linked Data format.
+
+## Linked Data
+Linked Data empowers people that publish and use information on the Web.
+
+It is a way to create a network of standards-based, machine-readable data across Web sites.
+
+```json
+{
+  "@context": "https://json-ld.org/contexts/person.jsonld",
+  "@id": "http://dbpedia.org/resource/John_Lennon",
+  "name": "John Lennon",
+  "born": "1940-10-09",
+  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+}
+```
+
 ---
 
 # header
