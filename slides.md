@@ -58,12 +58,15 @@ image: /images/fedidb-software-distribution.png
 ---
 
 # An alternative to centralized social media
+<br>
 
 ## <mdi-mastodon class="text-6" /> Mastodon
+
 - A microblogging platform
-- It's open source
-- Became widely popular when Elon Musk bought Twitter and started killing it
+- Open source
+- Became widely popular when Elon Musk took over Twitter
 - The largest piece of software in the Fediverse
+- 7.000.000+ users
 
 ---
 
