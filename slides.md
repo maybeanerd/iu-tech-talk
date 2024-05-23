@@ -185,6 +185,59 @@ https://json-ld.org/contexts/person.jsonld:
 }
 ```
 
+
+---
+
+# ActivityPub
+
+- Activities
+- Objects
+
+
+
+---
+
+# Activities
+
+
+- Create
+- Update
+- Delete
+- Follow
+- Like
+- Accept
+- ...
+
+---
+
+# Objects
+
+- another Activity
+- a Note
+- an Actor
+- ...
+
+
+
+---
+
+# Actor
+
+
+- Representation of a "User"
+- can be one per server, or many per server
+- can be a person, an organization, a bot, ...
+- is the author/owner of activities and objects
+- has an inbox and outbox
+
+---
+
+# Inbox/Outbox
+
+Sounds like email? It is like email.
+
+
+
 ---
 
 # header
