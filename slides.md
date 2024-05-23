@@ -370,22 +370,51 @@ stateDiagram-v2
 
 ---
 
-# GIVE ME MORE EXAMPLE
-### This is what a more complex federation could look like
 
-```mermaid
-stateDiagram-v2
-  state "Instance A" as A
-  state "Instance B" as B
-  state "Instance C" as C
-  state "Instance D" as D
-  A --> B: follows
+# where game
 
-  B --> A: follows
-  B --> C: follows
 
-  D --> B: follows
-```
+## Model all game server interactions through ActivityPub
+- offer a trade of resources
+  - sending a trade offer to another server
+  - accepting a trade offer from another server
+- signing a treaty with another server
+  - this is the active opt-in to allow trade with another server
+
+
+
+---
+
+# Signing a Treaty
+
+
+This sounds awfully similar to a Follow activity
+
+- follow to propose a treaty
+  - always accept on protocol level
+- follow back to sign the treaty
+- whenever someone unfollows, the treaty is broken
+
+---
+
+
+# Trading
+
+
+- create a note to propose a trade
+  - include readable description
+  - include game information (resources, amounts)
+- like a note to accept a trade
+- delete the note to cancel a trade or mark it as completed for others
+
+---
+
+
+# How do game servers know another server is a game server as well?
+
+## ActivityPub is extensible
+
+
 ---
 
 # header
