@@ -277,16 +277,14 @@ Sounds like email? It's like email.
 
 # GIVE ME EXAMPLE
 okay okay
-### This is what a basic federation could look like
+### This is what a basic setup could look like
+They do not federate with eachother yet
 
 ```mermaid
 stateDiagram-v2
   state "Instance A" as A
   state "Instance B" as B
   state "Instance C" as C
- 
-  A --> B: follows
-  B --> C: follows
 ```
 
 ---
@@ -296,31 +294,80 @@ stateDiagram-v2
 
 ```mermaid
 sequenceDiagram
+  autonumber
   participant A as Instance A, Actor A1
   participant B as Instance B, Actor B1
+  participant C as Instance C, Actor C1
+  Note over A: Actor A1 wants to follow user B1
   A->>B: Activity: FOLLOW A1->B1
   B-->>A: Activity: ACCEPT(Follow A1->B1)
 
 ```
+
 ---
 
-# Example flow: What happens after you follow
+
+# Turns into
+### The Federation after previous examples
+
+```mermaid
+stateDiagram-v2
+  state "Instance A" as A
+  state "Instance B" as B
+  state "Instance C" as C
+  A --> B: follows
+```
+---
+
+# Example flow: Liking a note
 
 ```mermaid
 sequenceDiagram
+  autonumber
   participant A as Instance A, Actor A1
   participant B as Instance B, Actor B1
   participant C as Instance C, Actor C1
-  B->>A: Activity: CREATE(Note1)
-  A-->>B: Activity: LIKE(Note1)
+  Note over B: Actor B1 creates a Note
+  B->>A: Activity: CREATE(Note2)
+  Note over A: Actor A1 likes Note2
+  A-->>B: Activity: LIKE(Note2)
+```
+---
 
+# Example flow: Getting a second follower
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant A as Instance A, Actor A1
+  participant B as Instance B, Actor B1
+  participant C as Instance C, Actor C1
+  Note over C: Actor C1 wants to follow user B1
   C->>B: Activity: Follow C1->B1
   B-->>C: Activity: ACCEPT(Follow C1->B1)
 
+  Note over B: Actor B1 creates a Note
   B->>A: Activity: CREATE(Note3)
   B->>C: Activity: CREATE(Note3)
 
 ```
+
+---
+
+
+# Turns into
+### The Federation after previous examples
+
+```mermaid
+stateDiagram-v2
+  state "Instance A" as A
+  state "Instance B" as B
+  state "Instance C" as C
+ 
+  A --> B: follows
+  C --> B: follows
+```
+
 ---
 
 # GIVE ME MORE EXAMPLE
