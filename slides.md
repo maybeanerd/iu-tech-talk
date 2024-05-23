@@ -116,7 +116,8 @@ But it would be cool.
 
 - ActivityPub is an open, decentralized social networking protocol based on ActivityStreams and JSON-LD
 - It provides a client/server API for managing content, as well as a federated server-to-server API for delivering notifications and content
-- It's a W3C standard. If you don't know who they are, they are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and many more
+- It's a W3C standard finalized in 2018
+  - If you don't know who they are, they are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and many more
 - It's what powers the Fediverse
 
 
@@ -138,10 +139,7 @@ JSON for Linking Data
 
 JSON-LD is a lightweight Linked Data format.
 
-## Linked Data
-Linked Data empowers people that publish and use information on the Web.
 
-It is a way to create a network of standards-based, machine-readable data across Web sites.
 
 
 ---
@@ -190,9 +188,26 @@ https://json-ld.org/contexts/person.jsonld:
 
 # ActivityPub
 
-- Activities
-- Objects
+### Uses ActivityStreams 2.0 for
 
+- Objects
+- Activities
+- Actors
+- Collections
+
+
+---
+
+# Objects
+
+### Most things in ActivityPub are an Object
+
+- any Activity
+- a Note
+  - It's a "post"
+- an Actor
+- a Collection
+- everything else, essentially
 
 
 ---
@@ -208,14 +223,7 @@ https://json-ld.org/contexts/person.jsonld:
 - Accept
 - ...
 
----
 
-# Objects
-
-- another Activity
-- a Note
-- an Actor
-- ...
 
 
 
@@ -234,16 +242,124 @@ https://json-ld.org/contexts/person.jsonld:
 
 # Inbox/Outbox
 
-Sounds like email? It is like email.
+Sounds like email? It's like email.
+
+- Inbox: where activities are sent to
+- Outbox: where activities can be retrieved from
+- They are `OrderedCollection`s
 
 
+---
 
+# (Ordered) Collections
+
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "summary": "Sally's notes",
+  "type": "OrderedCollection",
+  "totalItems": 2,
+  "orderedItems": [
+    {
+      "type": "Note",
+      "name": "A Simple Note"
+    },
+    {
+      "type": "Note",
+      "name": "Another Simple Note"
+    }
+  ]
+}
+```
+
+---
+
+# GIVE ME EXAMPLE
+okay okay
+### This is what a basic federation could look like
+
+```mermaid
+stateDiagram-v2
+  state "Instance A" as A
+  state "Instance B" as B
+  state "Instance C" as C
+ 
+  A --> B: follows
+  B --> C: follows
+```
+
+---
+
+
+# Example flow: How to follow
+
+```mermaid
+sequenceDiagram
+  participant A as Instance A, Actor A1
+  participant B as Instance B, Actor B1
+  A->>B: Activity: FOLLOW A1->B1
+  B-->>A: Activity: ACCEPT(Follow A1->B1)
+
+```
+---
+
+# Example flow: What happens after you follow
+
+```mermaid
+sequenceDiagram
+  participant A as Instance A, Actor A1
+  participant B as Instance B, Actor B1
+  participant C as Instance C, Actor C1
+  B->>A: Activity: CREATE(Note1)
+  A-->>B: Activity: LIKE(Note1)
+
+  C->>B: Activity: Follow C1->B1
+  B-->>C: Activity: ACCEPT(Follow C1->B1)
+
+  B->>A: Activity: CREATE(Note3)
+  B->>C: Activity: CREATE(Note3)
+
+```
+---
+
+# GIVE ME MORE EXAMPLE
+### This is what a more complex federation could look like
+
+```mermaid
+stateDiagram-v2
+  state "Instance A" as A
+  state "Instance B" as B
+  state "Instance C" as C
+  state "Instance D" as D
+  A --> B: follows
+
+  B --> A: follows
+  B --> C: follows
+
+  D --> B: follows
+```
 ---
 
 # header
 
 
 content
+
+
+
+---
+
+# Access Control/Ownership verification
+
+
+- HTTP signatures on most requests
+  - GET outbox
+  - POST to inbox
+
+TL;DR on how it works:
+- 
+
 
 ---
 layout: two-cols-header
