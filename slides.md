@@ -410,9 +410,33 @@ This sounds awfully similar to a Follow activity
 ---
 
 
-# How do game servers know another server is a game server as well?
+# ActivityPub context is extensible
 
-## ActivityPub is extensible
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
+    {
+      "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
+    }
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "type": "Note",
+  "content": "Basti wants to trade 50 Stone for 100 Wood",
+  "gameContent": {
+    "requestedResources": [{
+        "type": "Wood",
+        "amount": 100
+      }],
+    "offeredResources": [{
+        "type": "Stone",
+        "amount": 50
+      }]
+  },
+  ...
+}
+```
 
 
 ---
