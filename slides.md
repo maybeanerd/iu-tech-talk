@@ -423,7 +423,7 @@ This sounds awfully similar to a Follow activity
   ],
   "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
   "type": "Note",
-  "content": "Basti wants to trade 50 Stone for 100 Wood",
+  "content": "Basti wants requests 100 Wood and offers 50 Stone in return.",
   "gameContent": {
     "requestedResources": [{
         "type": "Wood",
