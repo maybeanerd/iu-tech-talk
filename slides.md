@@ -417,7 +417,6 @@ This sounds awfully similar to a Follow activity
   "@context": [
     "https://www.w3.org/ns/activitystreams",
     "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
-    
   ],
   "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
   "type": "Actor",
