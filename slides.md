@@ -133,22 +133,16 @@ Also, we like open standards, don't we?
 ---
 
 # Whats this ActivityPub thing?
+<br>
 
-- ActivityPub is an open, decentralized social networking protocol based on ActivityStreams and JSON-LD
-- It provides a client/server API for managing content, as well as a federated server-to-server API for delivering notifications and content
-- It's a W3C standard finalized in 2018
-  - If you don't know who they are, they are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and many more
-- It's what powers the Fediverse
+## It's a W3C standard finalized in 2018
+They are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and many more
 
-
----
-
-# ActivityStreams (2.0)
-
-- Also a W3C standard
-- Specifies underlying schemata used in ActivityPub
-- Includes things like: Object, Actor, Activity, Collection, Link
-- is implemented as serialized JSON-LD
+## ActivityPub is
+- Open, decentralized social networking protocol
+- based on ActivityStreams and JSON-LD
+- Defines a client/server API
+- Defines federated server-to-server API
 
 
 ---
@@ -206,29 +200,13 @@ https://json-ld.org/contexts/person.jsonld:
 
 ---
 
-# ActivityPub
+# ActivityStreams (2.0)
 
-### Uses ActivityStreams 2.0 for
-
-- Objects
-- Activities
-- Actors
-- Collections
-
-
----
-
-# Objects
-
-### Most things in ActivityPub are an Object
-
-- any Activity
-- a Note
-  - It's a "post"
-- an Actor
-- a Collection
-- everything else, essentially
-
+- Also a W3C standard
+- Specifies underlying schemata used in ActivityPub
+- Includes things like: Object, Actor, Activity, Collection, Link
+- is implemented as serialized JSON-LD
+  
 
 ---
 
