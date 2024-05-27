@@ -330,7 +330,7 @@ sequenceDiagram
   Note over B: Actor B1 creates a Note
   B->>A: Activity: CREATE(Note2)
   Note over A: Actor A1 likes Note2
-  A-->>B: Activity: LIKE(Note2)
+  A->>B: Activity: LIKE(Note2)
 ```
 ---
 
@@ -345,11 +345,6 @@ sequenceDiagram
   Note over C: Actor C1 wants to follow user B1
   C->>B: Activity: Follow C1->B1
   B-->>C: Activity: ACCEPT(Follow C1->B1)
-
-  Note over B: Actor B1 creates a Note
-  B->>A: Activity: CREATE(Note3)
-  B->>C: Activity: CREATE(Note3)
-
 ```
 
 ---
@@ -368,6 +363,24 @@ stateDiagram-v2
   C --> B: follows
 ```
 
+---
+
+# Liking a note with two followers
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant A as Instance A, Actor A1
+  participant B as Instance B, Actor B1
+  participant C as Instance C, Actor C1
+  Note over B: Actor B1 creates a Note
+  B->>A: Activity: CREATE(Note3)
+  B->>C: Activity: CREATE(Note3)
+
+  A->>B: Activity: LIKE(Note3)
+  Note over C: By default, C is not aware of the like. Could fetch it, if wanted
+
+```
 ---
 
 
@@ -568,56 +581,61 @@ Every actor has a public key:
  
 ````md magic-move
 ```ts
-const requestType = `POST`;
-const target = `/inbox`;
-const host = `test.game.diluz.io`;
-const date = `27 May 2024 12:00:00 GMT`;
-const bodyDigest = `SHA-256=...`;
+const requestType = 'POST';
+const target = '/inbox';
+const host = 'test.game.diluz.io';
+const date = '27 May 2024 12:00:00 GMT';
+const bodyDigest = 'SHA-256=...';
 ```
 ```ts
-const requestType = `POST`;
-const target = `/inbox`;
-const host = `test.game.diluz.io`;
-const date = `27 May 2024 12:00:00 GMT`;
-const bodyDigest = `SHA-256=...`;
+const requestType = 'POST';
+const target = '/inbox';
+const host = 'test.game.diluz.io';
+const date = '27 May 2024 12:00:00 GMT';
+const bodyDigest = 'SHA-256=...';
 
 const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
 ```
 ```ts
-const requestType = `POST`;
-const target = `/inbox`;
-const host = `test.game.diluz.io`;
-const date = `27 May 2024 12:00:00 GMT`;
-const bodyDigest = `SHA-256=...`;
+const requestType = 'POST';
+const target = '/inbox';
+const host = 'test.game.diluz.io';
+const date = '27 May 2024 12:00:00 GMT';
+const bodyDigest = 'SHA-256=...';
 
 const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
-const signature = sign(stringToSign, getPrivateKey('abcdefg'));
+const actorId = 'abcdefg';
+const signature = sign(stringToSign, getPrivateKey(actorId));
 ```
-```ts {|7-8,11|8,10}
-const requestType = `POST`;
-const target = `/inbox`;
-const host = `test.game.diluz.io`;
-const date = `27 May 2024 12:00:00 GMT`;
-const bodyDigest = `SHA-256=...`;
+```ts {|8,11|7,12|9,13}
+const requestType = 'POST';
+const target = '/inbox';
+const host = 'test.game.diluz.io';
+const date = '27 May 2024 12:00:00 GMT';
+const bodyDigest = 'SHA-256=...';
 
 const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
-const signature = sign(stringToSign, getPrivateKey('abcdefg'));
+const actorId = 'abcdefg';
+const signature = sign(stringToSign, getPrivateKey(actorId));
 const signatureHeader = 
-`keyId="https://mydomain.com/actor/abcdefg#main-key",
-headers="(request-target) host date digest",signature="${signature}"`;
+`keyId="https://mydomain.com/actor/${actorId}#main-key",
+headers="(request-target) host date digest",
+signature="${signature}"`;
 ```
 ```ts
-const requestType = `POST`;
-const target = `/inbox`;
-const host = `test.game.diluz.io`;
-const date = `27 May 2024 12:00:00 GMT`;
-const bodyDigest = `SHA-256=...`;
+const requestType = 'POST';
+const target = '/inbox';
+const host = 'test.game.diluz.io';
+const date = '27 May 2024 12:00:00 GMT';
+const bodyDigest = 'SHA-256=...';
 
 const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
-const signature = sign(stringToSign, getPrivateKey('abcdefg'));
+const actorId = 'abcdefg';
+const signature = sign(stringToSign, getPrivateKey(actorId));
 const signatureHeader = 
-`keyId="https://mydomain.com/actor/abcdefg#main-key",
-headers="(request-target) host date digest",signature="${signature}"`;
+`keyId="https://mydomain.com/actor/${actorId}#main-key",
+headers="(request-target) host date digest",
+signature="${signature}"`;
 
 await fetch(target, host, {
   type: requestType,
@@ -643,8 +661,8 @@ sequenceDiagram
   participant B as Instance B, Actor B1
 
   A->>B: Activity: CREATE(note) - signed
-  Note over B: B wants to verify the signature
-  B-->>A: GET public key of A1
+  Note over B: B either already has the public key of A1, or needs to fetch it
+  B-->>A: GET public key of A1 - unsigned
   Note over B: B verifies the signature using the public key
   B-->>A: 201 OK
 
