@@ -295,9 +295,7 @@ Sounds like email? It's like email.
 
 ---
 
-# GIVE ME EXAMPLE
-okay okay
-### This is what a basic setup could look like
+# This is what a basic setup could look like
 They do not federate with eachother yet
 
 ```mermaid
@@ -352,26 +350,11 @@ sequenceDiagram
   Note over A: Actor A1 likes Note2
   A->>B: Activity: LIKE(Note2)
 ```
----
-
-# Example flow: Getting a second follower
-
-```mermaid
-sequenceDiagram
-  autonumber
-  participant A as Instance A, Actor A1
-  participant B as Instance B, Actor B1
-  participant C as Instance C, Actor C1
-  Note over C: Actor C1 wants to follow user B1
-  C->>B: Activity: Follow C1->B1
-  B-->>C: Activity: ACCEPT(Follow C1->B1)
-```
 
 ---
 
 
-# Turns into
-### The Federation after previous examples
+# What if we have two following instances
 
 ```mermaid
 stateDiagram-v2
@@ -539,7 +522,10 @@ sequenceDiagram
 - We aren't really building a social media platform
 - We need custom information for game servers that other ActivityPub servers don't need, or won't understand
 
-## ActivityPub is extendable
+---
+layout: statement
+---
+# ActivityPub is extendable
 
 
 ---
