@@ -31,8 +31,9 @@ layout: intro
 ---
 
 # Who am I?
+<br>
 
-### Sebastian Di Luzio
+## Sebastian Di Luzio
 - Senior Software Engineer @ Team Foundation, Edutech
 - Enjoy playing videogames a lot
 - Spend far too much of my free time on side projects
@@ -57,10 +58,9 @@ layout: image-right
 image: /images/fedidb-software-distribution.png
 ---
 
-# An alternative to centralized social media
+# You might know it from <mdi-mastodon class="text-6" /> Mastodon
 <br>
 
-## <mdi-mastodon class="text-6" /> Mastodon
 
 - A microblogging platform
 - Open source
