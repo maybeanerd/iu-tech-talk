@@ -30,43 +30,33 @@ layout: intro
 
 ---
 
+
 # Who am I?
 <br>
 
 ## Sebastian Di Luzio
-- Senior Software Engineer @ Team Foundation, Edutech
+- Senior Software Engineer @ Team Foundation, EduTech
 - Enjoy playing videogames a lot
 - Spend far too much of my free time on side projects
 
 ---
-layout: image-right
-
+layout: intro-image-right
 image: /images/fediverse-logo.png
 ---
 
-# What's this social web, or Fediverse?
-- The Fediverse is a giant Network of social media services.
-- There are platforms for microblogging, blogging, photoblogging, videohosting and much more and they are all interconnected, or federated.
-- You only need one account to follow users on any of the platforms.
-- Services in the Fediverse interact with each other using the ActivityPub protocol.
-
+# The Fediverse
 
 
 ---
 layout: image-right
 
-image: /images/fedidb-software-distribution.png
+image: /images/fediverse-v1.2.png
 ---
 
-# You might know it from <mdi-mastodon class="text-6" /> Mastodon
-<br>
-
-
-- A microblogging platform
-- Open source
-- Became widely popular when Elon Musk took over Twitter
-- The largest piece of software in the Fediverse
-- 7.000.000+ users
+# What is the Fediverse aka. Social Web
+- A giant Network of social media services.
+- Platforms are independent but can interact using the ActivityPub protocol.
+- Users interact with any platform using a single account.
 
 ---
 
