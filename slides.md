@@ -94,21 +94,51 @@ How cool would it be if people hosted their own game servers and they could play
 
 ---
 
-# Original Federation
-- Last year I built a simple federation system that worked
-- Essentially, it was a simple push/pull system based on standardized events shared over REST
-- It worked!
-- It was boring and highly specific to this game
+
+# where game
+
+
+## Model all game server interactions through ActivityPub
+- offer a trade of resources
+  - sending a trade offer to another server
+  - accepting a trade offer from another server
+- signing a treaty with another server
+  - this is the active opt-in to allow trade with another server
+
+
 
 ---
 
-### I asked myself
+# Signing a Treaty
+
+- follow to propose a treaty
+  - always accept on protocol level
+- follow back to sign the treaty
+- whenever someone unfollows, the treaty is broken
+
+---
+
+
+# Trading
+
+
+- create a note to propose a trade
+  - include readable description
+  - include game information (resources, amounts)
+- like a note to accept a trade
+- delete the note to cancel a trade or mark it as completed for others
+
+---
+
+## I asked myself
 
 # What if someone on Mastodon could follow my gameserver and get updates on what's happening in the game?
 
-### It's really not necessary for the gameplay.
+It's really not necessary for the gameplay.
 
 But it would be cool.
+
+Also, we like open standards, don't we?
 
 ---
 
@@ -381,153 +411,6 @@ sequenceDiagram
   Note over C: By default, C is not aware of the like. Could fetch it, if wanted
 
 ```
----
-
-
-# where game
-
-
-## Model all game server interactions through ActivityPub
-- offer a trade of resources
-  - sending a trade offer to another server
-  - accepting a trade offer from another server
-- signing a treaty with another server
-  - this is the active opt-in to allow trade with another server
-
-
-
----
-
-# Signing a Treaty
-
-
-This sounds awfully similar to a Follow activity
-
-- follow to propose a treaty
-  - always accept on protocol level
-- follow back to sign the treaty
-- whenever someone unfollows, the treaty is broken
-
----
-
-
-# Trading
-
-
-- create a note to propose a trade
-  - include readable description
-  - include game information (resources, amounts)
-- like a note to accept a trade
-- delete the note to cancel a trade or mark it as completed for others
-
----
-
-
-# ActivityPub context is extensible: Actor
-
-````md magic-move
-```json {|2-5}
-{
-  "@context": [
-    "https://www.w3.org/ns/activitystreams",
-    "https://w3id.org/security/v1",
-  ],
-  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-  "type": "Actor",
-  "preferredUsername": "Merchant",
-  "inbox": "https://test.game.diluz.io/api/crossroads/inbox",
-  "outbox": "https://test.game.diluz.io/api/crossroads/outbox",
-
-  "publicKey": {
-    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
-    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
-    \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
-  },
-  ...
-}
-```
-```json {2-6}
-{
-  "@context": [
-    "https://www.w3.org/ns/activitystreams",
-    "https://w3id.org/security/v1",
-    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
-  ],
-  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-  "type": "Actor",
-  "preferredUsername": "Merchant",
-  "inbox": "https://test.game.diluz.io/api/crossroads/inbox",
-  "outbox": "https://test.game.diluz.io/api/crossroads/outbox",
-
-  "publicKey": {
-    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
-    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
-    \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
-  },
-  ...
-}
-```
-````
----
-
-
-# ActivityPub context is extensible: Note
-
-````md magic-move
-```json {|2-4}
-{
-  "@context": [
-    "https://www.w3.org/ns/activitystreams",
-  ],
-  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
-  "type": "Note",
-  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
-  ...
-}
-```
-```json {2-8}
-{
-  "@context": [
-    "https://www.w3.org/ns/activitystreams",
-    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
-    {
-      "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
-    }
-  ],
-  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
-  "type": "Note",
-  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
-  ...
-}
-```
-```json {5-7,12-21|11-21}
-{
-  "@context": [
-    "https://www.w3.org/ns/activitystreams",
-    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
-    {
-      "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
-    }
-  ],
-  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
-  "type": "Note",
-  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
-  "gameContent": {
-    "requestedResources": [{
-        "type": "Wood",
-        "amount": 100
-      }],
-    "offeredResources": [{
-        "type": "Stone",
-        "amount": 50
-      }]
-  },
-  ...
-}
-```
-````
 
 ---
 
@@ -658,6 +541,125 @@ sequenceDiagram
   B-->>A: 201 OK
 
 ```
+
+---
+
+# How do we make use of this protocol for a game?
+
+- We aren't really building a social media platform
+- We need custom information for game servers that other ActivityPub servers don't need, or won't understand
+
+## ActivityPub is extendable
+
+
+---
+
+
+# ActivityPub context is extendable: Actor
+
+````md magic-move
+```json {|2-5}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1",
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "type": "Actor",
+  "preferredUsername": "Merchant",
+  "inbox": "https://test.game.diluz.io/api/crossroads/inbox",
+  "outbox": "https://test.game.diluz.io/api/crossroads/outbox",
+
+  "publicKey": {
+    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
+    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
+    \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
+  },
+  ...
+}
+```
+```json {2-6}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1",
+    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "type": "Actor",
+  "preferredUsername": "Merchant",
+  "inbox": "https://test.game.diluz.io/api/crossroads/inbox",
+  "outbox": "https://test.game.diluz.io/api/crossroads/outbox",
+
+  "publicKey": {
+    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
+    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
+    \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
+  },
+  ...
+}
+```
+````
+---
+
+
+# ActivityPub context is extendable: Note
+
+````md magic-move
+```json {|2-4}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "type": "Note",
+  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  ...
+}
+```
+```json {2-8}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
+    {
+      "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
+    }
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "type": "Note",
+  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  ...
+}
+```
+```json {5-7,12-21|11-21}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
+    {
+      "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
+    }
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "type": "Note",
+  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  "gameContent": {
+    "requestedResources": [{
+        "type": "Wood",
+        "amount": 100
+      }],
+    "offeredResources": [{
+        "type": "Stone",
+        "amount": 50
+      }]
+  },
+  ...
+}
+```
+````
 
 ---
 layout: two-cols-header
