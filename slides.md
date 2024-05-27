@@ -428,7 +428,8 @@ This sounds awfully similar to a Follow activity
   "publicKey": {
     "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
     "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7\nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\nU2C8JzZYPZKd5Q+dk . . .\n-----END PUBLIC KEY-----",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
+    \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
   },
   ...
 }
@@ -449,7 +450,8 @@ This sounds awfully similar to a Follow activity
   "publicKey": {
     "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
     "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7\nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\nU2C8JzZYPZKd5Q+dk . . .\n-----END PUBLIC KEY-----",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
+    \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
   },
   ...
 }
@@ -528,13 +530,107 @@ content
 # Access Control/Ownership verification
 
 
-- HTTP signatures on most requests
+HTTP signatures on most requests
   - GET outbox
   - POST to inbox
 
-TL;DR on how it works:
-- 
+Every actor has a public key:
 
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1",
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "publicKey": {
+    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
+    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
+    \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
+  },
+  ...
+}
+```
+
+---
+
+# What to sign:
+- target host
+- target path
+- request method
+- date of request (typically the signature is valid for 30s)
+- If POST: a digest of the request body (SHA-256)
+  
+---
+
+# TL;DR on how a signature is created
+ 
+````md magic-move
+```ts
+const requestType = `POST`;
+const target = `/inbox`;
+const host = `test.game.diluz.io`;
+const date = `27 May 2024 12:00:00 GMT`;
+const bodyDigest = `SHA-256=...`;
+```
+```ts
+const requestType = `POST`;
+const target = `/inbox`;
+const host = `test.game.diluz.io`;
+const date = `27 May 2024 12:00:00 GMT`;
+const bodyDigest = `SHA-256=...`;
+
+const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
+```
+```ts
+const requestType = `POST`;
+const target = `/inbox`;
+const host = `test.game.diluz.io`;
+const date = `27 May 2024 12:00:00 GMT`;
+const bodyDigest = `SHA-256=...`;
+
+const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
+const signature = sign(stringToSign, getPrivateKey('abcdefg'));
+```
+```ts {|7,11|8,10}
+const requestType = `POST`;
+const target = `/inbox`;
+const host = `test.game.diluz.io`;
+const date = `27 May 2024 12:00:00 GMT`;
+const bodyDigest = `SHA-256=...`;
+
+const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
+const signature = sign(stringToSign, getPrivateKey('abcdefg'));
+const signatureHeader = 
+`keyId="https://mydomain.com/actor/abcdefg#main-key",
+headers="(request-target) host date digest",signature="${signature}"`;
+```
+```ts
+const requestType = `POST`;
+const target = `/inbox`;
+const host = `test.game.diluz.io`;
+const date = `27 May 2024 12:00:00 GMT`;
+const bodyDigest = `SHA-256=...`;
+
+const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
+const signature = sign(stringToSign, getPrivateKey('abcdefg'));
+const signatureHeader = 
+`keyId="https://mydomain.com/actor/abcdefg#main-key",
+headers="(request-target) host date digest",signature="${signature}"`;
+
+await fetch(target, host, {
+  type: requestType,
+  headers: {
+    Signature: signatureHeader,
+    Date: date,
+    Host: host,
+    Digest: bodyDigest
+  },
+  data: body,
+})
+```
+````
 
 ---
 layout: two-cols-header
