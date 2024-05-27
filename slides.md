@@ -531,15 +531,6 @@ This sounds awfully similar to a Follow activity
 
 ---
 
-# header
-
-
-content
-
-
-
----
-
 # Access Control/Ownership verification
 
 
