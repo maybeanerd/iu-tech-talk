@@ -593,7 +593,7 @@ const bodyDigest = `SHA-256=...`;
 const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
 const signature = sign(stringToSign, getPrivateKey('abcdefg'));
 ```
-```ts {|7,11|8,10}
+```ts {|7-8,11|8,10}
 const requestType = `POST`;
 const target = `/inbox`;
 const host = `test.game.diluz.io`;
@@ -631,6 +631,24 @@ await fetch(target, host, {
 })
 ```
 ````
+
+---
+
+# Flow of a signed request
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant A as Instance A, Actor A1
+  participant B as Instance B, Actor B1
+
+  A->>B: Activity: CREATE(note) - signed
+  Note over B: B wants to verify the signature
+  B-->>A: GET public key of A1
+  Note over B: B verifies the signature using the public key
+  B-->>A: 201 OK
+
+```
 
 ---
 layout: two-cols-header
