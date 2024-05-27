@@ -412,7 +412,28 @@ This sounds awfully similar to a Follow activity
 
 # ActivityPub context is extensible: Actor
 
-```json {|2-6}
+````md magic-move
+```json {|2-5}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1",
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "type": "Actor",
+  "preferredUsername": "Merchant",
+  "inbox": "https://test.game.diluz.io/api/crossroads/inbox",
+  "outbox": "https://test.game.diluz.io/api/crossroads/outbox",
+
+  "publicKey": {
+    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
+    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7\nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\nU2C8JzZYPZKd5Q+dk . . .\n-----END PUBLIC KEY-----",
+  },
+  ...
+}
+```
+```json {2-6}
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -433,12 +454,40 @@ This sounds awfully similar to a Follow activity
   ...
 }
 ```
+````
 ---
 
 
 # ActivityPub context is extensible: Note
 
-```json {|2-8|5-7,12-21}
+````md magic-move
+```json {|2-4}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "type": "Note",
+  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  ...
+}
+```
+```json {2-8}
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
+    {
+      "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
+    }
+  ],
+  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "type": "Note",
+  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  ...
+}
+```
+```json {5-7,12-21|11-21}
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
@@ -463,7 +512,7 @@ This sounds awfully similar to a Follow activity
   ...
 }
 ```
-
+````
 
 ---
 
