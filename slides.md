@@ -462,86 +462,21 @@ Every actor has a public key:
 ---
 
 # What to sign:
+
+<v-clicks>
+
 - target host
+  - e.g. `example.org`
 - target path
+  - e.g. `/inbox`
 - request method
+  - e.g. `POST`
 - date of request (typically the signature is valid for 30s)
+  - e.g. `27 May 2024 12:00:00 GMT`
 - If POST: a digest of the request body (SHA-256)
-  
----
+  - e.g. `SHA-256=2cf24...8b9824`
 
-# TL;DR on how a signature is created
- 
-````md magic-move
-```ts
-const requestType = 'POST';
-const target = '/inbox';
-const host = 'example.org';
-const date = '27 May 2024 12:00:00 GMT';
-const bodyDigest = 'SHA-256=...';
-```
-```ts
-const requestType = 'POST';
-const target = '/inbox';
-const host = 'example.org';
-const date = '27 May 2024 12:00:00 GMT';
-const bodyDigest = 'SHA-256=...';
-
-const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
-```
-```ts
-const requestType = 'POST';
-const target = '/inbox';
-const host = 'example.org';
-const date = '27 May 2024 12:00:00 GMT';
-const bodyDigest = 'SHA-256=...';
-
-const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
-const actorId = 'abcdefg';
-const signature = sign(stringToSign, getPrivateKey(actorId));
-```
-```ts {|8,11|7,12|9,13}
-const requestType = 'POST';
-const target = '/inbox';
-const host = 'example.org';
-const date = '27 May 2024 12:00:00 GMT';
-const bodyDigest = 'SHA-256=...';
-
-const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
-const actorId = 'abcdefg';
-const signature = sign(stringToSign, getPrivateKey(actorId));
-const signatureHeader = 
-`keyId="https://example.com/actor/${actorId}#main-key",
-headers="(request-target) host date digest",
-signature="${signature}"`;
-```
-```ts
-const requestType = 'POST';
-const target = '/inbox';
-const host = 'example.org';
-const date = '27 May 2024 12:00:00 GMT';
-const bodyDigest = 'SHA-256=...';
-
-const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date}\ndigest: ${bodyDigest}`;
-const actorId = 'abcdefg';
-const signature = sign(stringToSign, getPrivateKey(actorId));
-const signatureHeader = 
-`keyId="https://example.com/actor/${actorId}#main-key",
-headers="(request-target) host date digest",
-signature="${signature}"`;
-
-await fetch(target, host, {
-  type: requestType,
-  headers: {
-    Signature: signatureHeader,
-    Date: date,
-    Host: host,
-    Digest: bodyDigest
-  },
-  data: body,
-})
-```
-````
+</v-clicks>
 
 ---
 
@@ -554,7 +489,7 @@ sequenceDiagram
   participant B as Instance B, Actor B1
 
   A->>B: Activity: CREATE(note) - signed
-  Note over B: B either already has the public key of A1, or needs to fetch it
+  Note over B: B hasn't stored the public key of A1, needs to fetch it
   B-->>A: GET public key of A1 - unsigned
   Note over B: B verifies the signature using the public key
   B-->>A: 201 OK
