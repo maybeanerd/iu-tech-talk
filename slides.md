@@ -149,17 +149,26 @@ They are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and m
 
 # JSON-LD
 
-JSON for Linking Data
+<br>
 
-JSON-LD is a lightweight Linked Data format.
+## JSON for Linking Data
 
-It is a way to create a network of standards-based, machine-readable data across Web sites.
+- a W3C recommendation
+- lightweight Linked Data format
+<v-click>
+
+## Linked Data
+A way to create a network of standards-based, machine-readable data across Web sites
+</v-click>
 
 
 ---
 layout: two-cols-header
 ---
+# JSON-LD Example
+
 ::left::
+
 Example JSON-LD object:
 
 
@@ -178,7 +187,9 @@ Example JSON-LD object:
 
 ::right::
 
-<v-click at="3">https://json-ld.org/contexts/person.jsonld:
+<v-click at="3">
+
+https://json-ld.org/contexts/person.jsonld:
 
 ```json {|5-15}
 {
@@ -208,7 +219,7 @@ Example JSON-LD object:
 - Also a W3C standard
 - Specifies underlying schemata used in ActivityPub
 - Includes things like: Object, Actor, Activity, Collection, Link
-- is implemented as serialized JSON-LD
+- is implemented as JSON-LD
   
 
 ---
