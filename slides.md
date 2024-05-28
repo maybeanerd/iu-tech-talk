@@ -135,15 +135,22 @@ Also, we like open standards, don't we?
 # Whats this ActivityPub thing?
 <br>
 
-## It's a W3C standard finalized in 2018
-They are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and many more
+## It's a W3C standard, finalized in 2018
+> W3C is the World Wide Web Consortium
+> 
+> They define things like: HTML, CSS, XML, WebAssembly, WebRTC, ...
 
-## ActivityPub is
+<br>
+
+<v-click>
+
+## It's also:
 - Open, decentralized social networking protocol
-- Defines a client/server API
+- Defines a client-server API
 - Defines federated server-to-server API
 - based on ActivityStreams and JSON-LD
 
+</v-click>
 
 ---
 
