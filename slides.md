@@ -197,7 +197,6 @@ Example JSON-LD object:
 <v-click at="3">
 
 https://json-ld.org/contexts/person.jsonld:
-
 ```json {|5-15}
 {
   "@context": {
