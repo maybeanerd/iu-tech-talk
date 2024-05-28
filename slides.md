@@ -59,6 +59,21 @@ image: /images/fediverse-v1.2.png
 - Users can interact with any platform, need to join only a single one.
 
 ---
+layout: statement
+---
+
+I thought to myself
+<div v-click.hide>
+
+# Huh, that sounds cool.
+</div>
+
+<div v-after>
+
+# I want to build something based on this!
+</div>
+
+---
 
 # What do game servers have to do with this?
 
