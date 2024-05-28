@@ -511,7 +511,6 @@ layout: statement
 
 ---
 
-
 # ActivityPub context is extendable: Actor
 
 ````md magic-move
