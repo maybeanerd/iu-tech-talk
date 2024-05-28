@@ -140,9 +140,9 @@ They are the people who define: HTML, CSS, XML, WebAssembly, WebRTC, SOAP, and m
 
 ## ActivityPub is
 - Open, decentralized social networking protocol
-- based on ActivityStreams and JSON-LD
 - Defines a client/server API
 - Defines federated server-to-server API
+- based on ActivityStreams and JSON-LD
 
 
 ---
@@ -153,7 +153,7 @@ JSON for Linking Data
 
 JSON-LD is a lightweight Linked Data format.
 
-
+It is a way to create a network of standards-based, machine-readable data across Web sites.
 
 
 ---
@@ -161,7 +161,9 @@ layout: two-cols-header
 ---
 ::left::
 Example JSON-LD object:
-```json
+
+
+```json {|4-5|6-9|2-3}
 {
   "@context": 
     "https://json-ld.org/contexts/person.jsonld",
@@ -173,11 +175,12 @@ Example JSON-LD object:
     "http://dbpedia.org/resource/Cynthia_Lennon"
 }
 ```
+
 ::right::
 
-https://json-ld.org/contexts/person.jsonld:
+<v-click at="3">https://json-ld.org/contexts/person.jsonld:
 
-```json
+```json {|5-15}
 {
   "@context": {
       "Person": "http://xmlns.com/foaf/0.1/Person",
@@ -197,7 +200,7 @@ https://json-ld.org/contexts/person.jsonld:
 }
 ```
 
-
+</v-click>
 ---
 
 # ActivityStreams (2.0)
