@@ -148,9 +148,17 @@ Also, we like open standards, don't we?
 - Open, decentralized social networking protocol
 - Defines a client-server API
 - Defines federated server-to-server API
-- based on ActivityStreams and JSON-LD
+- based on ActivityStreams
 
 </v-click>
+
+---
+
+# ActivityStreams (2.0)
+
+- Also a W3C standard
+- Specifies underlying schemata used in ActivityPub
+- is implemented as JSON-LD
 
 ---
 
@@ -218,19 +226,22 @@ https://json-ld.org/contexts/person.jsonld:
 ```
 
 </v-click>
----
-
-# ActivityStreams (2.0)
-
-- Also a W3C standard
-- Specifies underlying schemata used in ActivityPub
-- Includes things like: Object, Actor, Activity, Collection, Link
-- is implemented as JSON-LD
-  
 
 ---
 
-# Activities
+# ActivityStreams: Object
+
+They are encompass almost everything that exists within ActivityStreams
+
+- Activities
+- Notes
+- Actors
+- Collections
+- ...
+
+---
+
+# ActivityStreams: Activity
 
 
 - Create
@@ -239,22 +250,54 @@ https://json-ld.org/contexts/person.jsonld:
 - Follow
 - Like
 - Accept
-- ...
 
 
-
-
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "http://example.org/activities/1",
+  "type": "Create",
+  "actor": "http://example.org/actors/1",
+  "object": "http://example.org/notes/1",
+}
+```
 
 ---
 
-# Actor
+# ActivityStreams: Note
+
+They are what you would call a "post" on a social media platform
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "http://example.org/notes/1",
+  "type": "Note",
+  "content": "Hello world!",
+  "attributedTo": "http://example.org/actors/1",
+}
+```
+
+---
+
+# ActivityStreams: Actor
 
 
-- Representation of a "User"
+- a "User"
 - can be one per server, or many per server
-- can be a person, an organization, a bot, ...
-- is the author/owner of activities and objects
-- has an inbox and outbox
+- person, an organization, a bot, ...
+
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "http://example.org/actors/1",
+  "type": "Person",
+  "name": "Basti",
+  "preferredUsername": "XxBastixX",
+  "inbox": "http://example.org/actors/1/inbox",
+  "outbox": "http://example.org/actors/1/outbox",
+}
+```
 
 ---
 
@@ -269,23 +312,28 @@ Sounds like email? It's like email.
 
 ---
 
-# (Ordered) Collections
+# ActivityStreams: (Ordered) Collections
 
+Outbox: 
 
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
-  "summary": "Sally's notes",
+  "summary": "Basti's activity feed",
   "type": "OrderedCollection",
   "totalItems": 2,
   "orderedItems": [
     {
-      "type": "Note",
-      "name": "A Simple Note"
+      "id": "http://example.org/activity/1",
+      "type": "Create",
+      "object": "http://example.org/notes/1",
+      ...
     },
     {
+      "id": "http://example.org/notes/1",
       "type": "Note",
-      "name": "Another Simple Note"
+      "name": "Hello world!",
+      ...
     }
   ]
 }
@@ -400,10 +448,10 @@ Every actor has a public key:
     "https://www.w3.org/ns/activitystreams",
     "https://w3id.org/security/v1",
   ],
-  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "id": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
   "publicKey": {
-    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
-    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "id": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
+    "owner": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
     "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
     \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
   },
@@ -428,14 +476,14 @@ Every actor has a public key:
 ```ts
 const requestType = 'POST';
 const target = '/inbox';
-const host = 'test.game.diluz.io';
+const host = 'example.org';
 const date = '27 May 2024 12:00:00 GMT';
 const bodyDigest = 'SHA-256=...';
 ```
 ```ts
 const requestType = 'POST';
 const target = '/inbox';
-const host = 'test.game.diluz.io';
+const host = 'example.org';
 const date = '27 May 2024 12:00:00 GMT';
 const bodyDigest = 'SHA-256=...';
 
@@ -444,7 +492,7 @@ const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date
 ```ts
 const requestType = 'POST';
 const target = '/inbox';
-const host = 'test.game.diluz.io';
+const host = 'example.org';
 const date = '27 May 2024 12:00:00 GMT';
 const bodyDigest = 'SHA-256=...';
 
@@ -455,7 +503,7 @@ const signature = sign(stringToSign, getPrivateKey(actorId));
 ```ts {|8,11|7,12|9,13}
 const requestType = 'POST';
 const target = '/inbox';
-const host = 'test.game.diluz.io';
+const host = 'example.org';
 const date = '27 May 2024 12:00:00 GMT';
 const bodyDigest = 'SHA-256=...';
 
@@ -463,14 +511,14 @@ const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date
 const actorId = 'abcdefg';
 const signature = sign(stringToSign, getPrivateKey(actorId));
 const signatureHeader = 
-`keyId="https://mydomain.com/actor/${actorId}#main-key",
+`keyId="https://example.com/actor/${actorId}#main-key",
 headers="(request-target) host date digest",
 signature="${signature}"`;
 ```
 ```ts
 const requestType = 'POST';
 const target = '/inbox';
-const host = 'test.game.diluz.io';
+const host = 'example.org';
 const date = '27 May 2024 12:00:00 GMT';
 const bodyDigest = 'SHA-256=...';
 
@@ -478,7 +526,7 @@ const stringToSign = `(request-target): ${target} \nhost: ${host} \ndate: ${date
 const actorId = 'abcdefg';
 const signature = sign(stringToSign, getPrivateKey(actorId));
 const signatureHeader = 
-`keyId="https://mydomain.com/actor/${actorId}#main-key",
+`keyId="https://example.com/actor/${actorId}#main-key",
 headers="(request-target) host date digest",
 signature="${signature}"`;
 
@@ -538,15 +586,15 @@ layout: statement
     "https://www.w3.org/ns/activitystreams",
     "https://w3id.org/security/v1",
   ],
-  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "id": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
   "type": "Actor",
   "preferredUsername": "Merchant",
-  "inbox": "https://test.game.diluz.io/api/crossroads/inbox",
-  "outbox": "https://test.game.diluz.io/api/crossroads/outbox",
+  "inbox": "https://example.org/api/crossroads/inbox",
+  "outbox": "https://example.org/api/crossroads/outbox",
 
   "publicKey": {
-    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
-    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "id": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
+    "owner": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
     "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
     \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
   },
@@ -560,15 +608,15 @@ layout: statement
     "https://w3id.org/security/v1",
     "https://github.com/maybeanerd/selfhosted-api-trader-game#isGameServer",
   ],
-  "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "id": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
   "type": "Actor",
   "preferredUsername": "Merchant",
-  "inbox": "https://test.game.diluz.io/api/crossroads/inbox",
-  "outbox": "https://test.game.diluz.io/api/crossroads/outbox",
+  "inbox": "https://example.org/api/crossroads/inbox",
+  "outbox": "https://example.org/api/crossroads/outbox",
 
   "publicKey": {
-    "id": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
-    "owner": "https://test.game.diluz.io/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "id": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8#main-key",
+    "owner": "https://example.org/api/crossroads/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8",
     "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4L85COLX4QJ1SRRITaT\n9ZGrUj3NWS42IS0RzCRZMvZnlmkMg8ktQFgM1lISRQJSEESHgQl+ZX+MVMByONSe\nPZCk4p0gCZ3euNQF1a2sRtBQHk8bbQj+7AlUx1/3kjkI1Q9bJYy2/DBZHTG8ZDU7
     \nFhly4CmGW3pGmCgFT4sGHFzLa5iG5n4Oxni3E/gOsKFt3fr4Z5W6vUjE5ReU8Bt+\n-----END PUBLIC KEY-----",
   },
@@ -587,7 +635,7 @@ layout: statement
   "@context": [
     "https://www.w3.org/ns/activitystreams",
   ],
-  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "id": "https://example.org/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
   "type": "Note",
   "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
   ...
@@ -602,7 +650,7 @@ layout: statement
       "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
     }
   ],
-  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "id": "https://example.org/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
   "type": "Note",
   "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
   ...
@@ -617,7 +665,7 @@ layout: statement
       "gameContent": "https://github.com/maybeanerd/selfhosted-api-trader-game#gameContent"
     }
   ],
-  "id": "https://test.game.diluz.io/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
+  "id": "https://example.org/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
   "type": "Note",
   "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
   "gameContent": {
