@@ -56,7 +56,7 @@ image: /images/fediverse-v1.2.png
 # What is the Fediverse aka. Social Web
 - A giant Network of social media services.
 - Platforms are independent but can interact using the ActivityPub protocol.
-- Users interact with any platform using a single account.
+- Users can interact with any platform, need to join only a single one.
 
 ---
 
