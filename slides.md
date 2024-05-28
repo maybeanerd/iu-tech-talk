@@ -73,29 +73,32 @@ I thought to myself
 # I want to build something based on this!
 </div>
 
----
-
-# What do game servers have to do with this?
-
-## Federation of Mastodon inspired this game.
-How cool would it be if people hosted their own game servers and they could play with their friends from other servers?
-
-## What's this game about
-
-- It's more about playing around with interesting tech than building a game that is successful.
-- It's also about getting tech savvy people to think about the social web
-- I want people to build their own clients, and I want to see what they come up with.
-- A small group of people cooperating on a shared goal.
 
 ---
 
-# Gameplay TLDR
-- Idle, Base Building, Coop Multiplayer
-- You are a villager in a small village
+# A Game Idea was born
+
+<v-clicks>
+
 - Your task is to build up your village
 - You need resources to build
 - You can generate a specific resource set based on your occupation
-- You can trade resources with other players, and will need to do so to progress
+  - e.g. a miner generates stone, coal, iron, etc.
+- You need resources you can't generate to progress
+- You can trade with other players to get those resources
+
+</v-clicks>
+<div v-click>
+
+## Through Federation ✨
+</div>
+
+---
+
+TODO game flow demo? (in slides, not live)
+
+
+then at the end of the talk, we look at them again and understand whats happening
 
 ---
 
