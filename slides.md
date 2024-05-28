@@ -648,6 +648,19 @@ GET `https://example.org/.well-known/webfinger?resource=acct:basti@example.org`
 </v-click>
 
 ---
+
+# Putting everything together
+
+- search for merchant actor of host
+- make sure the actor is from a gameserver
+- follow the actor
+  - if they follow back, sign treaty
+- create a note to propose a trade
+- like the note to accept a trade
+- delete the note to cancel a trade or remove accepted ones
+
+
+---
 layout: two-cols-header
 ---
 
