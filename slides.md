@@ -618,6 +618,36 @@ layout: statement
 ````
 
 ---
+
+# Finding actors: Webfinger
+
+- A way to find representations of an actor
+- Not defined in ActivityPub, but the de-facto standard
+
+<v-click>
+
+GET `https://example.org/.well-known/webfinger?resource=acct:basti@example.org`
+
+```json
+{
+  "subject": "acct:basti@example.org",
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://example.org/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+    },
+    {
+      "rel": "self",
+      "type": "application/ld+json; profile=\"https://www.w3.org/ns/activitystreams\"",
+      "href": "https://example.org/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+    }
+  ]
+}
+  ```
+</v-click>
+
+---
 layout: two-cols-header
 ---
 
