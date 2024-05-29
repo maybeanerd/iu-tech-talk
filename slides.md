@@ -165,8 +165,17 @@ You now have wood!
 
 
 ---
+layout: statement
+---
 
-# Whats this ActivityPub thing?
+# Ok, we know the basics of the game
+
+
+## How do we make this part of the Fediverse?
+
+---
+
+# First, we need to understand ActivityPub
 <br>
 
 ## It's a W3C standard, finalized in 2018
