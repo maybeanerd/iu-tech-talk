@@ -384,7 +384,10 @@ Outbox:
 
 ---
 
-# This is what a basic setup could look like
+# Example: Three instances
+
+<br>
+
 They do not federate with eachother yet
 
 ```mermaid
@@ -397,7 +400,7 @@ stateDiagram-v2
 ---
 
 
-# Example flow: How to follow
+# Example flow: Follow and Accept
 
 ```mermaid
 sequenceDiagram
@@ -414,36 +417,9 @@ sequenceDiagram
 ---
 
 
-# Turns into
-### The Federation after previous examples
+# Example: Being followed by two instances
 
-```mermaid
-stateDiagram-v2
-  state "Instance A" as A
-  state "Instance B" as B
-  state "Instance C" as C
-  A --> B: follows
-```
----
-
-# Example flow: Liking a note
-
-```mermaid
-sequenceDiagram
-  autonumber
-  participant A as Instance A, Actor A1
-  participant B as Instance B, Actor B1
-  participant C as Instance C, Actor C1
-  Note over B: Actor B1 creates a Note
-  B->>A: Activity: CREATE(Note2)
-  Note over A: Actor A1 likes Note2
-  A->>B: Activity: LIKE(Note2)
-```
-
----
-
-
-# What if we have two following instances
+<br>
 
 ```mermaid
 stateDiagram-v2
@@ -457,7 +433,7 @@ stateDiagram-v2
 
 ---
 
-# Liking a note with two followers
+# Example: Note Creation & Like Federation
 
 ```mermaid
 sequenceDiagram
