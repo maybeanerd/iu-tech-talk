@@ -494,7 +494,7 @@ Every actor has a public key:
   - typically the signature is valid for 30s, mastodon e.g. allows 12h
   - e.g. `27 May 2024 12:00:00 GMT`
 - If POST: a digest of the request body (SHA-256)
-  - e.g. `SHA-256=2cf24...8b9824`
+  - e.g. `{"text":"hello iu.tech"}` ➡ `SHA-256=1be0c0...d99e7`
 
 </v-clicks>
 
