@@ -47,9 +47,20 @@ layout: intro
 <br>
 
 ## Sebastian Di Luzio
-- Senior Software Engineer @ Team Foundation, EduTech
+- Senior Software Engineer @ Team Foundation
 - Enjoy playing videogames a lot
 - Spend far too much of my free time on side projects
+
+<v-click>
+
+## Team Foundation (EduTech)
+- We're the platform team for myCampus 2.0
+- Our focus on 
+  - developer experience
+  - enabling feature teams
+  - pipelines
+
+</v-click>
 
 ---
 layout: intro-image-right
