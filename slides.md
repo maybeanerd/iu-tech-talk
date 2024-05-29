@@ -461,7 +461,7 @@ HTTP signatures on most requests
 
 Every actor has a public key:
 
-```json
+```json {|4,7-12}
 {
   "@context": [
     "https://www.w3.org/ns/activitystreams",
