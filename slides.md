@@ -14,7 +14,18 @@ mdc: true
 transition: slide-left
 defaults:
   layout: default
+
 download: true
+exportFilename: abusing-activity-pub-to-federate-game-servers-iu-tech-2024
+# export options
+# use export CLI options in camelCase format
+# Learn more: https://sli.dev/guide/exporting.html
+export:
+  format: pdf
+  timeout: 30000
+  dark: true
+  withClicks: true
+  withToc: false
 
 layout: intro
 ---
