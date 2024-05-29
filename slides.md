@@ -51,22 +51,10 @@ image: /images/basti.png
 <br>
 
 ## Sebastian Di Luzio
-- Senior Software Engineer @ Team Foundation
+- Senior Software Engineer <br>in Team Foundation (EduTech)
+- Joined IU end of 2021
 - Enjoy playing videogames a lot
 - Spend far too much of my free time on side projects
-
----
-layout: image-right
-
-image: /images/magikarp.webp
----
-
-# Team Foundation (EduTech)
-- The platform team for myCampus 2.0
-- We focus on 
-  - developer experience
-  - enabling feature teams
-  - pipelines
 
 ---
 
