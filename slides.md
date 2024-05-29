@@ -141,7 +141,47 @@ TODO game flow demo? (in slides, not live)
 then at the end of the talk, we look at them again and understand whats happening
 
 ---
+layout: intro-image-right
+image: /images/gameplay/0_resources.png
+---
+# You're a miner.
+You generate stone, but no wood.
 
+---
+layout: intro-image-right
+image: /images/gameplay/1_propose-treaty.png
+---
+# To start trading, you need to sign a treaty.
+You can propose a treaty to another game server.
+
+---
+layout: intro-image-right
+image: /images/gameplay/2_accepted-treaty.png
+---
+# The other server accepted the treaty.
+You now have an active treaty.
+
+---
+layout: intro-image-right
+image: /images/gameplay/3_propose-trade.png
+---
+# You propose a trade.
+You want wood and can give stone in return.
+
+---
+layout: intro-image-right
+image: /images/gameplay/5_received-trade.png
+---
+# On another server, they receive your offer.
+
+---
+layout: intro-image-right
+image: /images/gameplay/6_received-trade-result.png
+---
+# They accept your offer.
+You now have wood!
+
+---
 
 # where game
 
