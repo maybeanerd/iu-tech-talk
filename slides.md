@@ -14,6 +14,7 @@ mdc: true
 transition: slide-left
 defaults:
   layout: default
+download: true
 
 layout: intro
 ---
