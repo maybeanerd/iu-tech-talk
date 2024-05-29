@@ -13,7 +13,7 @@ drawings:
 mdc: true
 transition: slide-left
 defaults:
-  layout: default
+  layout: quote
 
 download: true
 exportFilename: abusing-activity-pub-to-federate-game-servers-iu-tech-2024
@@ -87,16 +87,12 @@ image: /images/fediverse-v1.2.png
 - Users can interact with any platform, need to join only a single one.
 
 ---
-layout: statement
----
 
 I thought to myself
-<div v-click.hide>
 
 # Huh, that sounds cool.
-</div>
 
-<div v-after>
+<div v-click>
 
 # I want to build something based on this!
 </div>
@@ -165,11 +161,9 @@ You now have wood!
 
 
 ---
-layout: statement
----
 
 # Ok, we know the basics of the game
-
+<br>
 
 ## How do we make this part of the Fediverse?
 
@@ -346,7 +340,10 @@ They are what you would call a "post" on a social media platform
 
 # Inbox/Outbox
 
-Sounds like email? It's like email.
+> Sounds like email? It's like email.
+
+
+<br>
 
 - Inbox: where activities are sent to
 - Outbox: where activities can be retrieved from
