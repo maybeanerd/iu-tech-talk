@@ -124,7 +124,7 @@ I thought to myself
 - You need resources to build
 - You can generate a specific resource set based on your occupation
   - e.g. a miner generates stone, coal, iron, etc.
-- You need resources you can't generate to progress
+- To progress you need resources you can't generate yourself
 - You can trade with other players to get those resources
 
 </v-clicks>
