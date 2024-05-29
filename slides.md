@@ -104,7 +104,7 @@ I thought to myself
 
 ---
 
-# A Game Idea was born
+# The premise of the game
 
 <v-clicks>
 
@@ -122,13 +122,6 @@ I thought to myself
 </div>
 
 ---
-
-TODO game flow demo? (in slides, not live)
-
-
-then at the end of the talk, we look at them again and understand whats happening
-
----
 layout: intro-image-right
 image: /images/gameplay/0_resources.png
 ---
@@ -140,14 +133,14 @@ layout: intro-image-right
 image: /images/gameplay/1_propose-treaty.png
 ---
 # To start trading, you need to sign a treaty.
-You can propose a treaty to another game server.
+You can propose a treaty to a game server you trust.
 
 ---
 layout: intro-image-right
 image: /images/gameplay/2_accepted-treaty.png
 ---
 # The other server accepted the treaty.
-You now have an active treaty.
+You allow connections to this server.
 
 ---
 layout: intro-image-right
@@ -158,8 +151,9 @@ You want wood and can give stone in return.
 
 ---
 layout: intro-image-right
-image: /images/gameplay/5_received-trade.png
+image: /images/gameplay/trade-meme.jpg
 ---
+
 # On another server, they receive your offer.
 
 ---
@@ -742,7 +736,7 @@ layout: two-cols-header
 
 #### <mdi-mastodon class="text-4" /> @maybeanerd@bumscode.com
 #### <mdi-github class="text-4" /> maybeanerd
-#### <mdi-web class="text-4" /> diluz.io/sebastian
+#### <mdi-web class="text-4" /> https://diluz.io
 #### <mdi-linkedin class="text-4" /> sebastian-di-luzio
 
 ::right::
