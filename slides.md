@@ -713,7 +713,7 @@ GET `https://example.org/.well-known/webfinger?resource=acct:basti@example.org`
 layout: two-cols-header
 ---
 
-# Follow me for more
+# You can find me on the (social) web
 
 ::left::
 
@@ -725,3 +725,6 @@ layout: two-cols-header
 ::right::
 
 #### <mdi-email class="text-4" /> give-me-feedback-on-the-abusing-activity-pub-to-federate-game-servers-presentation-please@diluz.io
+<br>
+
+#### <mdi-email class="text-4" /> sebastian.di-luzio@iu.org
