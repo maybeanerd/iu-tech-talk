@@ -40,8 +40,12 @@ layout: intro
   </span>
 </div>
 
----
 
+---
+layout: image-right
+
+image: /images/basti.png
+---
 
 # Who am I?
 <br>
@@ -51,16 +55,29 @@ layout: intro
 - Enjoy playing videogames a lot
 - Spend far too much of my free time on side projects
 
-<v-click>
+---
+layout: image-right
 
-## Team Foundation (EduTech)
-- We're the platform team for myCampus 2.0
-- Our focus on 
+image: /images/magikarp.webp
+---
+
+# Team Foundation (EduTech)
+- The platform team for myCampus 2.0
+- We focus on 
   - developer experience
   - enabling feature teams
   - pipelines
 
-</v-click>
+---
+
+# We will talk about
+
+- The Fediverse
+- Overview of the example game
+- ActivityPub
+  - General Overview
+  - Deep Dive
+- Making the game work with ActivityPub
 
 ---
 layout: intro-image-right
