@@ -410,7 +410,7 @@ sequenceDiagram
   participant C as Instance C, Actor C1
   Note over A: Actor A1 wants to follow user B1
   A->>B: Activity: FOLLOW A1->B1
-  B-->>A: Activity: ACCEPT(Follow A1->B1)
+  B->>A: Activity: ACCEPT(Follow A1->B1)
 
 ```
 
@@ -490,7 +490,8 @@ Every actor has a public key:
   - e.g. `/inbox`
 - request method
   - e.g. `POST`
-- date of request (typically the signature is valid for 30s)
+- date of request 
+  - typically the signature is valid for 30s, mastodon e.g. allows 12h
   - e.g. `27 May 2024 12:00:00 GMT`
 - If POST: a digest of the request body (SHA-256)
   - e.g. `SHA-256=2cf24...8b9824`
@@ -507,11 +508,11 @@ sequenceDiagram
   participant A as Instance A, Actor A1
   participant B as Instance B, Actor B1
 
-  A->>B: Activity: CREATE(note) - signed
-  Note over B: B hasn't stored the public key of A1, needs to fetch it
-  B-->>A: GET public key of A1 - unsigned
-  Note over B: B verifies the signature using the public key
-  B-->>A: 201 OK
+  A->>+B: signed Activity: CREATE(note)
+  Note right of B: B hasn't stored the public key of A1, needs to fetch it
+  B->>A: unsigned GET public key of A1
+  Note right of B: B verifies the signature using the public key
+  B-->>-A: returns 201 OK or 401 Unauthorized
 
 ```
 
