@@ -181,52 +181,6 @@ image: /images/gameplay/6_received-trade-result.png
 # They accept your offer.
 You now have wood!
 
----
-
-# where game
-
-
-## Model all game server interactions through ActivityPub
-- offer a trade of resources
-  - sending a trade offer to another server
-  - accepting a trade offer from another server
-- signing a treaty with another server
-  - this is the active opt-in to allow trade with another server
-
-
-
----
-
-# Signing a Treaty
-
-- follow to propose a treaty
-  - always accept on protocol level
-- follow back to sign the treaty
-- whenever someone unfollows, the treaty is broken
-
----
-
-
-# Trading
-
-
-- create a note to propose a trade
-  - include readable description
-  - include game information (resources, amounts)
-- like a note to accept a trade
-- delete the note to cancel a trade or mark it as completed for others
-
----
-
-## I asked myself
-
-# What if someone on Mastodon could follow my gameserver and get updates on what's happening in the game?
-
-It's really not necessary for the gameplay.
-
-But it would be cool.
-
-Also, we like open standards, don't we?
 
 ---
 
@@ -756,6 +710,38 @@ GET `https://example.org/.well-known/webfinger?resource=acct:basti@example.org`
 - create a note to propose a trade
 - like the note to accept a trade
 - delete the note to cancel a trade or remove accepted ones
+
+---
+
+# Model all game server interactions through ActivityPub
+- offer a trade of resources
+  - sending a trade offer to another server
+  - accepting a trade offer from another server
+- signing a treaty with another server
+  - this is the active opt-in to allow trade with another server
+
+
+
+---
+
+# Signing a Treaty
+
+- follow to propose a treaty
+  - always accept on protocol level
+- follow back to sign the treaty
+- whenever someone unfollows, the treaty is broken
+
+---
+
+
+# Trading
+
+
+- create a note to propose a trade
+  - include readable description
+  - include game information (resources, amounts)
+- like a note to accept a trade
+- delete the note to cancel a trade or mark it as completed for others
 
 
 ---
