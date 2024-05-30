@@ -181,11 +181,11 @@ You now have wood!
 
 <v-click>
 
-## It's also:
-- Open, decentralized social networking protocol
+## It also:
+- Defines an open federation protocol & behavior
 - Defines a client-server API
 - Defines federated server-to-server API
-- based on ActivityStreams
+- Is based on ActivityStreams
 
 </v-click>
 
@@ -213,6 +213,26 @@ You now have wood!
 A way to create a network of standards-based, machine-readable data across Web sites
 </v-click>
 
+---
+
+# To recap:
+
+<v-click>
+
+## JSON-LD
+The technical format
+
+</v-click>
+<v-click>
+
+## ActivityStreams
+Schema of objects and data, Content-Type
+</v-click>
+<v-click>
+
+## ActivityPub
+The behavior of the server and the API it provides
+</v-click>
 
 ---
 layout: two-cols-header
@@ -263,6 +283,7 @@ https://json-ld.org/contexts/person.jsonld:
 ```
 
 </v-click>
+
 
 ---
 
