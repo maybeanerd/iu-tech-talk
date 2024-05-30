@@ -538,46 +538,58 @@ sequenceDiagram
 
 # How do we make use of this protocol for a game?
 
-- We aren't really building a social media platform
-- We need custom information for game servers that other ActivityPub servers don't need, or won't understand
+Let's re-visit the game behavior and figure out how to map it to ActivityPub
 
 ---
 
-Remember step1? We need to find another instance
-Therefore we need actors
-Let's do 1 actor per instance
+# Step 1: Sign a treaty with another instance
+
+- Every game server has a single actor called `merchant`
+- To propose a treaty to an instance, you follow its actor
+- Following back "signs" the treaty
+- Any actor unfollowing suspends the treaty
 
 ---
 
-But how does one find actors? -> webfinger
+# Finding instance actors: Webfinger
+
+- ActivityPub does not define a way to find actors
+- Webfinger is the de-facto standard for this
+
+<v-click>
+
+GET `https://example.org/.well-known/webfinger?resource=acct:merchant@example.org`
+
+```json
+{
+  "subject": "acct:merchant@example.org",
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://example.org/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+    },
+    {
+      "rel": "self",
+      "type": "application/ld+json; profile=\"https://www.w3.org/ns/activitystreams\"",
+      "href": "https://example.org/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+    }
+  ]
+}
+```
+
+</v-click>
 
 ---
 
-Okay so now what, treaties? -> mutual follow
+# What about "normal" ActivityPub servers
 
----
-
-That's great, but now that's open to all the fediverse
-Doesn't this Break the Game if others can interact? -> detect Game Server actors
-
----
-
-Cool, now trading? -> notes
-Accept trade? -> Like the note
-Remove Note: delete
-
----
-
-Nice, but aren't we missing vital info for Trading in notes? -> gameContent context
-
----
-
-And with that, we are federated.
-Other Services can follow our Interactions, but we are Selfcontained for general gameplay control
+Might they confuse our game servers logic by interacting with it?
 
 ---
 layout: statement
 ---
+
 # ActivityPub is extendable
 
 
@@ -630,6 +642,29 @@ layout: statement
 }
 ```
 ````
+
+---
+
+# We can detect game servers
+And treat them differently from normal servers
+
+- Allow them to follow, but don't map those follows to treaties
+
+---
+
+# Step 2: Trading
+
+- Creating a note to offer a trade
+- Liking a note to accept a trade
+- Deleting a note to cancel a trade
+
+---
+
+# Trade content
+ We can of course encode the trade content in the note, but that will look weird on other Fediverse instances.
+
+ Can we make it both readable for other instances and usable for our game?
+
 ---
 
 
@@ -688,81 +723,10 @@ layout: statement
 }
 ```
 ````
-
 ---
 
-# Finding actors: Webfinger
-
-- A way to find representations of an actor
-- Not defined in ActivityPub, but the de-facto standard
-
-<v-click>
-
-GET `https://example.org/.well-known/webfinger?resource=acct:basti@example.org`
-
-```json
-{
-  "subject": "acct:basti@example.org",
-  "links": [
-    {
-      "rel": "self",
-      "type": "application/activity+json",
-      "href": "https://example.org/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8"
-    },
-    {
-      "rel": "self",
-      "type": "application/ld+json; profile=\"https://www.w3.org/ns/activitystreams\"",
-      "href": "https://example.org/actors/6ba7b810-9dad-11d1-80b4-00c04fd430c8"
-    }
-  ]
-}
-  ```
-</v-click>
-
----
-
-# Putting everything together
-
-- search for merchant actor of host
-- make sure the actor is from a gameserver
-- follow the actor
-  - if they follow back, sign treaty
-- create a note to propose a trade
-- like the note to accept a trade
-- delete the note to cancel a trade or remove accepted ones
-
----
-
-# Model all game server interactions through ActivityPub
-- offer a trade of resources
-  - sending a trade offer to another server
-  - accepting a trade offer from another server
-- signing a treaty with another server
-  - this is the active opt-in to allow trade with another server
-
-
-
----
-
-# Signing a Treaty
-
-- follow to propose a treaty
-  - always accept on protocol level
-- follow back to sign the treaty
-- whenever someone unfollows, the treaty is broken
-
----
-
-
-# Trading
-
-
-- create a note to propose a trade
-  - include readable description
-  - include game information (resources, amounts)
-- like a note to accept a trade
-- delete the note to cancel a trade or mark it as completed for others
-
+# And with that, we are federated.
+Other Services can follow our interactions, but we are selfcontained for game specific logic
 
 ---
 layout: two-cols-header
