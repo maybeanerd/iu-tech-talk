@@ -542,6 +542,40 @@ sequenceDiagram
 - We need custom information for game servers that other ActivityPub servers don't need, or won't understand
 
 ---
+
+Remember step1? We need to find another instance
+Therefore we need actors
+Let's do 1 actor per instance
+
+---
+
+But how does one find actors? -> webfinger
+
+---
+
+Okay so now what, treaties? -> mutual follow
+
+---
+
+That's great, but now that's open to all the fediverse
+Doesn't this Break the Game if others can interact? -> detect Game Server actors
+
+---
+
+Cool, now trading? -> notes
+Accept trade? -> Like the note
+Remove Note: delete
+
+---
+
+Nice, but aren't we missing vital info for Trading in notes? -> gameContent context
+
+---
+
+And with that, we are federated.
+Other Services can follow our Interactions, but we are Selfcontained for general gameplay control
+
+---
 layout: statement
 ---
 # ActivityPub is extendable
