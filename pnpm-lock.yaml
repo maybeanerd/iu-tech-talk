@@ -15,8 +15,8 @@ importers:
         specifier: 1.1.66
         version: 1.1.66
       '@slidev/cli':
-        specifier: 0.49.7
-        version: 0.49.7(@babel/parser@7.24.5)(@nuxt/kit@3.8.2(rollup@4.13.2))(@types/markdown-it@14.1.1)(@types/node@18.19.33)(@vue/compiler-sfc@3.4.27)(playwright-chromium@1.44.1)(postcss@8.4.38)(rollup@4.13.2)(vue-template-compiler@2.7.16)
+        specifier: 0.49.8
+        version: 0.49.8(@babel/parser@7.24.5)(@nuxt/kit@3.8.2(rollup@4.13.2))(@types/markdown-it@14.1.1)(@types/node@18.19.33)(@vue/compiler-sfc@3.4.27)(playwright-chromium@1.44.1)(postcss@8.4.38)(rollup@4.13.2)(vue-template-compiler@2.7.16)
       '@slidev/theme-apple-basic':
         specifier: 0.25.1
         version: 0.25.1
@@ -552,8 +552,8 @@ packages:
     resolution: {integrity: sha512-rUV5WyJrJLoloD4NDN1V1+LDMDWOa4OTsT4yYJwQNpTU6FWxkxHpL7eu4w+DmiH8x/EAM1otkPE1+LaspIbplw==}
     engines: {node: '>=18'}
 
-  '@slidev/cli@0.49.7':
-    resolution: {integrity: sha512-n1BlFeevnebJ2RSR7FBMcwn25AXEWZHSwts/7p/65AiP8gffPm2+VE5nZQhRGePHEgUwZCpk9hKARYBfXSuYCw==}
+  '@slidev/cli@0.49.8':
+    resolution: {integrity: sha512-G+gDtLJOLz64Qo9ogGEdUL1FmUQQ3p3v6yjl/xm3b5G3dDZ3Gk/JQcnZDRZjnJ4BXqBGE3ZB1t+h4/ukgVxaMw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -562,12 +562,12 @@ packages:
       playwright-chromium:
         optional: true
 
-  '@slidev/client@0.49.7':
-    resolution: {integrity: sha512-D2FWnjZKlG8K6KQA3OLdr83kiAWDQolNlLbfiUxZghT5iJPGxb/x6wFdXUoETfccNR9Qih2OpSqFcLVRUmLf5g==}
+  '@slidev/client@0.49.8':
+    resolution: {integrity: sha512-WXY4BM6BrooyUKr+QfyMe3KbX5/RtVIiC0U33Orhv7ekjLvT3/WH7b4VHDOwE53brJmGThMo2wDw4NNwBJsmUA==}
     engines: {node: '>=18.0.0'}
 
-  '@slidev/parser@0.49.7':
-    resolution: {integrity: sha512-isPL1aD4Wv9kZves+WvRgJKesO3zZv1CuO2GCPOiclxmC+5TabkaVhMxSpj+puwAEM2LqJsct9+LUYW9DE3dAQ==}
+  '@slidev/parser@0.49.8':
+    resolution: {integrity: sha512-jSMK+NasOXpFWCDqJqdtzVhlAqRfaGzC9F0BL4vL31rWX+8/e+Jxd0NQiQREE7T7rxNLHGXaoAu4+Tn7IpWfKA==}
     engines: {node: '>=18.0.0'}
 
   '@slidev/rough-notation@0.1.0':
@@ -581,8 +581,8 @@ packages:
     resolution: {integrity: sha512-sVdU5FICVaSBg+M+IcK57Jif59N2blMwcV+BmkVYclJjilQqBk5z4F2GZZsWV8D2YFsE+ZTDjFVUscpaQ3/9Cw==}
     engines: {node: '>=18.0.0'}
 
-  '@slidev/types@0.49.7':
-    resolution: {integrity: sha512-ikJNdLK0UJBNorhocjTCUUUf2Am2ov8Ls5dUiAmkM0RKksAB2LmAfmefyANuPfqdJuyyz6hjMpNsjPGfCxuyAQ==}
+  '@slidev/types@0.49.8':
+    resolution: {integrity: sha512-24sPtbLUtSL8pz+yJQwN/Gn5VzSruYoG+FYGEir9FwW1cjL7FgfqLPeM/VNtszpg5zGpYCJclAJ9dTWro/281w==}
     engines: {node: '>=18.0.0'}
 
   '@szmarczak/http-timer@5.0.1':
@@ -895,6 +895,10 @@ packages:
 
   braces@3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
+    engines: {node: '>=8'}
+
+  braces@3.0.3:
+    resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
   browserslist@4.22.2:
@@ -1372,6 +1376,10 @@ packages:
 
   fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
+    engines: {node: '>=8'}
+
+  fill-range@7.1.1:
+    resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
 
   finalhandler@1.1.2:
@@ -1947,8 +1955,8 @@ packages:
   micromark@4.0.0:
     resolution: {integrity: sha512-o/sd0nMof8kYff+TqcDx3VSrgBTcZpSvYcAHIfHhv5VAuNmisCxjhx6YmxS8PFEpb9z5WKWKPdzf0jM23ro3RQ==}
 
-  micromatch@4.0.5:
-    resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
+  micromatch@4.0.7:
+    resolution: {integrity: sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==}
     engines: {node: '>=8.6'}
 
   mime-db@1.52.0:
@@ -3279,7 +3287,7 @@ snapshots:
   '@sindresorhus/merge-streams@1.0.0':
     optional: true
 
-  '@slidev/cli@0.49.7(@babel/parser@7.24.5)(@nuxt/kit@3.8.2(rollup@4.13.2))(@types/markdown-it@14.1.1)(@types/node@18.19.33)(@vue/compiler-sfc@3.4.27)(playwright-chromium@1.44.1)(postcss@8.4.38)(rollup@4.13.2)(vue-template-compiler@2.7.16)':
+  '@slidev/cli@0.49.8(@babel/parser@7.24.5)(@nuxt/kit@3.8.2(rollup@4.13.2))(@types/markdown-it@14.1.1)(@types/node@18.19.33)(@vue/compiler-sfc@3.4.27)(playwright-chromium@1.44.1)(postcss@8.4.38)(rollup@4.13.2)(vue-template-compiler@2.7.16)':
     dependencies:
       '@antfu/ni': 0.21.12
       '@antfu/utils': 0.7.8
@@ -3290,9 +3298,9 @@ snapshots:
       '@shikijs/markdown-it': 1.6.1
       '@shikijs/twoslash': 1.6.1(typescript@5.4.5)
       '@shikijs/vitepress-twoslash': 1.6.1(@nuxt/kit@3.8.2(rollup@4.13.2))(typescript@5.4.5)
-      '@slidev/client': 0.49.7(@nuxt/kit@3.8.2(rollup@4.13.2))(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
-      '@slidev/parser': 0.49.7(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
-      '@slidev/types': 0.49.7(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
+      '@slidev/client': 0.49.8(@nuxt/kit@3.8.2(rollup@4.13.2))(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
+      '@slidev/parser': 0.49.8(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
+      '@slidev/types': 0.49.8(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
       '@unocss/extractor-mdc': 0.60.3
       '@unocss/reset': 0.60.3
       '@vitejs/plugin-vue': 5.0.4(vite@5.2.12(@types/node@18.19.33))(vue@3.4.27(typescript@5.4.5))
@@ -3319,6 +3327,7 @@ snapshots:
       markdown-it: 14.1.0
       markdown-it-footnote: 4.0.0
       markdown-it-mdc: 0.2.3(@types/markdown-it@14.1.1)(markdown-it@14.1.0)
+      micromatch: 4.0.7
       mlly: 1.7.0
       monaco-editor: 0.49.0
       open: 10.1.0
@@ -3377,7 +3386,7 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/client@0.49.7(@nuxt/kit@3.8.2(rollup@4.13.2))(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)':
+  '@slidev/client@0.49.8(@nuxt/kit@3.8.2(rollup@4.13.2))(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)':
     dependencies:
       '@antfu/utils': 0.7.8
       '@iconify-json/carbon': 1.1.34
@@ -3385,9 +3394,9 @@ snapshots:
       '@iconify-json/svg-spinners': 1.1.2
       '@shikijs/monaco': 1.6.1
       '@shikijs/vitepress-twoslash': 1.6.1(@nuxt/kit@3.8.2(rollup@4.13.2))(typescript@5.4.5)
-      '@slidev/parser': 0.49.7(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
+      '@slidev/parser': 0.49.8(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
       '@slidev/rough-notation': 0.1.0
-      '@slidev/types': 0.49.7(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
+      '@slidev/types': 0.49.8(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
       '@typescript/ata': 0.9.4(typescript@5.4.5)
       '@unhead/vue': 1.9.11(vue@3.4.27(typescript@5.4.5))
       '@unocss/reset': 0.60.3
@@ -3428,10 +3437,10 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/parser@0.49.7(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)':
+  '@slidev/parser@0.49.8(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)':
     dependencies:
       '@antfu/utils': 0.7.8
-      '@slidev/types': 0.49.7(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
+      '@slidev/types': 0.49.8(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)
       yaml: 2.4.2
     transitivePeerDependencies:
       - '@svgr/core'
@@ -3458,7 +3467,7 @@ snapshots:
 
   '@slidev/types@0.47.1': {}
 
-  '@slidev/types@0.49.7(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)':
+  '@slidev/types@0.49.8(@vue/compiler-sfc@3.4.27)(postcss@8.4.38)(rollup@4.13.2)(typescript@5.4.5)(vite@5.2.12(@types/node@18.19.33))(vue-template-compiler@2.7.16)':
     dependencies:
       '@antfu/utils': 0.7.8
       '@vitejs/plugin-vue': 5.0.4(vite@5.2.12(@types/node@18.19.33))(vue@3.4.27(typescript@5.4.5))
@@ -3939,6 +3948,10 @@ snapshots:
   braces@3.0.2:
     dependencies:
       fill-range: 7.0.1
+
+  braces@3.0.3:
+    dependencies:
+      fill-range: 7.1.1
 
   browserslist@4.22.2:
     dependencies:
@@ -4446,7 +4459,7 @@ snapshots:
       '@nodelib/fs.walk': 1.2.8
       glob-parent: 5.1.2
       merge2: 1.4.1
-      micromatch: 4.0.5
+      micromatch: 4.0.7
 
   fastq@1.16.0:
     dependencies:
@@ -4455,6 +4468,10 @@ snapshots:
   file-saver@2.0.5: {}
 
   fill-range@7.0.1:
+    dependencies:
+      to-regex-range: 5.0.1
+
+  fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
 
@@ -5256,9 +5273,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  micromatch@4.0.5:
+  micromatch@4.0.7:
     dependencies:
-      braces: 3.0.2
+      braces: 3.0.3
       picomatch: 2.3.1
 
   mime-db@1.52.0: {}
