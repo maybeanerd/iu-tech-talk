@@ -385,15 +385,15 @@ Outbox:
   "totalItems": 2,
   "orderedItems": [
     {
-      "id": "http://example.org/activity/1",
+      "id": "http://example.org/activity/42",
       "type": "Create",
-      "object": "http://example.org/notes/1",
+      "object": "http://example.org/notes/7",
       ...
     },
     {
-      "id": "http://example.org/notes/1",
-      "type": "Note",
-      "name": "Hello world!",
+      "id": "http://example.org/activity/1",
+      "type": "Create",
+      "object": "http://example.org/notes/1",
       ...
     }
   ]
