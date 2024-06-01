@@ -536,6 +536,8 @@ sequenceDiagram
 
 ---
 
+TODO: refine following slides
+
 # How do we make use of this protocol for a game?
 
 Let's re-visit the game behavior and figure out how to map it to ActivityPub
