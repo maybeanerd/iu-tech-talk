@@ -535,28 +535,37 @@ sequenceDiagram
 ```
 
 ---
-
-TODO: refine following slides
+layout: statement
+---
 
 # How do we make use of this protocol for a game?
 
+<!-- 
 Let's re-visit the game behavior and figure out how to map it to ActivityPub
+-->
 
 ---
 
 # Step 1: Sign a treaty with another instance
 
+- Game servers have a single actor called `merchant`
+- Proposing a treaty: follow
+- Accepting a treaty: follow back
+- Suspending a treaty: unfollow
+
+<!-- 
 - Every game server has a single actor called `merchant`
 - To propose a treaty to an instance, you follow its actor
 - Following back "signs" the treaty
 - Any actor unfollowing suspends the treaty
+- ActivityPub does not define a way to find actors
+-->
 
 ---
 
 # Finding instance actors: Webfinger
 
-- ActivityPub does not define a way to find actors
-- Webfinger is the de-facto standard for this
+Is the de-facto standard for finding actors
 
 <v-click>
 
@@ -586,7 +595,7 @@ GET `https://example.org/.well-known/webfinger?resource=acct:merchant@example.or
 
 # What about "normal" ActivityPub servers
 
-Might they confuse our game servers logic by interacting with it?
+We want to allow them to follow our activities, but don't really care about theirs
 
 ---
 layout: statement
@@ -650,22 +659,38 @@ layout: statement
 # We can detect game servers
 And treat them differently from normal servers
 
-- Allow them to follow, but don't map those follows to treaties
+- don't map their activities to game actions
+- only allow following game servers
+
+<!-- 
+- Allow others to follow, but don't map those follows to treaties
+- Ignore others likes in terms of accepted trades
+- Ignore others notes/don't follow them to start with. Only follow game servers
+-->
 
 ---
 
 # Step 2: Trading
 
+- Offer a trade
+- Accept a trade we got
+- Take back a trade we offered
+
+<!-- 
 - Creating a note to offer a trade
 - Liking a note to accept a trade
 - Deleting a note to cancel a trade
+-->
 
 ---
 
 # Trade content
- We can of course encode the trade content in the note, but that will look weird on other Fediverse instances.
 
- Can we make it both readable for other instances and usable for our game?
+How do we know what is being traded?
+
+<!--  We can of course encode the trade content in the note, but that will look weird on other Fediverse instances.
+
+ Can we make it both readable for other instances and usable for our game? -->
 
 ---
 
@@ -728,7 +753,8 @@ And treat them differently from normal servers
 ---
 
 # And with that, we are federated.
-Other Services can follow our interactions, but we are selfcontained for game specific logic
+
+<!-- Other Services can follow our interactions, but we are selfcontained for game specific logic -->
 
 ---
 layout: two-cols-header
