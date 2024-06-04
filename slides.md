@@ -592,10 +592,14 @@ GET `https://example.org/.well-known/webfinger?resource=acct:merchant@example.or
 </v-click>
 
 ---
+layout: statement
+---
 
 # What about "normal" ActivityPub servers
 
-We want to allow them to follow our activities, but don't really care about theirs
+<br>
+
+## We want to allow them to follow our activities, but don't really care about theirs
 
 ---
 layout: statement
