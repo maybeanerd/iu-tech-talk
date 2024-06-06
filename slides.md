@@ -217,29 +217,6 @@ You now have wood!
 A way to create a network of standards-based, machine-readable data across Web sites
 </v-click>
 
----
-<!--
-This slide might need to go
--->
-
-# To recap:
-
-<v-click>
-
-## JSON-LD
-The technical format
-
-</v-click>
-<v-click>
-
-## ActivityStreams
-Schema of objects and data, Content-Type
-</v-click>
-<v-click>
-
-## ActivityPub
-The behavior of the server and the API it provides
-</v-click>
 
 ---
 layout: two-cols-header
@@ -308,24 +285,27 @@ They are encompass almost everything that exists within ActivityStreams
 
 # ActivityStreams: Activity
 
+Represents an action that has taken place
 
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "http://example.org/activities/1",
+  "type": "Create", // Update, Delete, Follow, Like, Accept
+  "actor": "http://example.org/actors/1",
+  "object": "http://example.org/notes/1",
+}
+```
+
+<!--
+types:
 - Create
 - Update
 - Delete
 - Follow
 - Like
 - Accept
-
-
-```json
-{
-  "@context": "https://www.w3.org/ns/activitystreams",
-  "id": "http://example.org/activities/1",
-  "type": "Create",
-  "actor": "http://example.org/actors/1",
-  "object": "http://example.org/notes/1",
-}
-```
+-->
 
 ---
 
@@ -348,30 +328,28 @@ They are what you would call a "post" on a social media platform
 # ActivityStreams: Actor
 
 
-- a "User"
-- can be one per server, or many per server
-- person, an organization, a bot, ...
+Represents a "User"
 
 ```json
 {
   "@context": "https://www.w3.org/ns/activitystreams",
   "id": "http://example.org/actors/1",
-  "type": "Person",
-  "name": "Basti",
-  "preferredUsername": "XxBastixX",
+  "type": "Person", // Application, Group, Organization, Service
+  "name": "sebastian.di-luzio",
+  "preferredUsername": "Basti",
   "inbox": "http://example.org/actors/1/inbox",
   "outbox": "http://example.org/actors/1/outbox",
 }
 ```
 
+<!--
+One per server, or many per server
+-->
+
 ---
 
 # Inbox/Outbox
 
-> Sounds like email? It's like email.
-
-
-<br>
 
 - Inbox: where activities are sent to
 - Outbox: where activities can be retrieved from
@@ -502,26 +480,6 @@ Every actor has a public key:
   ...
 }
 ```
-
----
-
-# What to sign:
-
-<v-clicks>
-
-- target host
-  - e.g. `example.org`
-- target path
-  - e.g. `/inbox`
-- request method
-  - e.g. `POST`
-- date of request 
-  - typically the signature is valid for 30s, mastodon e.g. allows 12h
-  - e.g. `27 May 2024 12:00:00 GMT`
-- If POST: a digest of the request body (SHA-256)
-  - e.g. `{"text":"hello iu.tech"}` ➡ `SHA-256=1be0c0...d99e7`
-
-</v-clicks>
 
 ---
 
