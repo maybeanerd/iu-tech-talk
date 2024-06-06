@@ -641,9 +641,9 @@ And treat them differently from normal servers
 
 # Step 2: Trading
 
-- Offer a trade
-- Accept a trade we got
-- Take back a trade we offered
+- Offer a trade: create note
+- Accept a trade we got: like note
+- Take back a trade we offered: delete note
 
 <!-- 
 - Creating a note to offer a trade
@@ -674,7 +674,7 @@ How do we know what is being traded?
   ],
   "id": "https://example.org/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
   "type": "Note",
-  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  "content": "One of our villagers requests 500 Wood and offers 600 Stone in return.",
   ...
 }
 ```
@@ -689,7 +689,7 @@ How do we know what is being traded?
   ],
   "id": "https://example.org/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
   "type": "Note",
-  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  "content": "One of our villagers requests 500 Wood and offers 600 Stone in return.",
   ...
 }
 ```
@@ -704,15 +704,15 @@ How do we know what is being traded?
   ],
   "id": "https://example.org/api/crossroads/notes/123e4567-e89b-12d3-a456-426614174000",
   "type": "Note",
-  "content": "One of our villagers requests 100 Wood and offers 50 Stone in return.",
+  "content": "One of our villagers requests 500 Wood and offers 600 Stone in return.",
   "gameContent": {
     "requestedResources": [{
         "type": "Wood",
-        "amount": 100
+        "amount": 500
       }],
     "offeredResources": [{
         "type": "Stone",
-        "amount": 50
+        "amount": 600
       }]
   },
   ...
