@@ -63,8 +63,6 @@ image: /images/basti.png
 - The Fediverse
 - Overview of the example game
 - ActivityPub
-  - General Overview
-  - Deep Dive
 - Making the game work with ActivityPub
 
 ---
@@ -76,15 +74,21 @@ image: /images/fediverse-logo.png
 
 
 ---
-layout: image-right
+layout: intro-image-right
 
 image: /images/fediverse-v1.2.png
 ---
 
 # What is the Fediverse aka. Social Web
 - A giant Network of social media services.
-- Platforms are independent but can interact using the ActivityPub protocol.
-- Users can interact with any platform, need to join only a single one.
+- Platforms are independent but can interact with eachother.
+- Users can interact with users of any platform.
+
+<!--
+examples:
+- Mastodon, which is similar to Twitter
+- Pixelfed, which is similar to Instagram
+-->
 
 ---
 
@@ -214,6 +218,9 @@ A way to create a network of standards-based, machine-readable data across Web s
 </v-click>
 
 ---
+<!--
+This slide might need to go
+-->
 
 # To recap:
 
