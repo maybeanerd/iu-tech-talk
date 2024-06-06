@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@iconify-json/logos':
-        specifier: 1.1.42
-        version: 1.1.42
+        specifier: 1.1.43
+        version: 1.1.43
       '@iconify-json/mdi':
         specifier: 1.1.66
         version: 1.1.66
@@ -489,8 +489,8 @@ packages:
   '@iconify-json/carbon@1.1.34':
     resolution: {integrity: sha512-azvhc5HP+CilSrzSEfP4MezsG5n4tj+vIJLADhqCbFM1BOAmyDe/K1lTL9GLDluybsCvSqb15+6AIRb1jtKhpQ==}
 
-  '@iconify-json/logos@1.1.42':
-    resolution: {integrity: sha512-/f+frtPm3m3Z30oy8Pk+QqRDkbmAiIaWGPl5CmsCXm15MVfvw9a/V/gD7WzdyuSGAZcFuQaqbHXj92y/n+2ifg==}
+  '@iconify-json/logos@1.1.43':
+    resolution: {integrity: sha512-UtvL1yDHUr9dl1Tqihh6K9m5dmbYKOYyLf3i9aKhymSW76QjOCGjpgQc0PQ4GJCAdU1cAMu+WO61TgPxdonrlg==}
 
   '@iconify-json/mdi@1.1.66':
     resolution: {integrity: sha512-7KPF2RVUUWav/hXCM8Ti/smqu3cmgePJpiX9CSkldiL+80+eBRBeKlc4vPOc9jhAItlqIU1vKsbKoPP0JIfgbg==}
@@ -3395,7 +3395,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/logos@1.1.42':
+  '@iconify-json/logos@1.1.43':
     dependencies:
       '@iconify/types': 2.0.0
 
