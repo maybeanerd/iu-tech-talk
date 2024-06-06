@@ -378,42 +378,16 @@ Outbox:
 }
 ```
 
----
-
-# Example: Three instances
-
-<br>
-
-They do not federate with eachother yet
-
-```mermaid
-stateDiagram-v2
-  state "Instance A" as A
-  state "Instance B" as B
-  state "Instance C" as C
-```
 
 ---
-
-
-# Example flow: Follow and Accept
-
-```mermaid
-sequenceDiagram
-  autonumber
-  participant A as Instance A, Actor A1
-  participant B as Instance B, Actor B1
-  participant C as Instance C, Actor C1
-  Note over A: Actor A1 wants to follow user B1
-  A->>B: Activity: FOLLOW A1->B1
-  B->>A: Activity: ACCEPT(Follow A1->B1)
-
-```
-
+layout: default
+transition: none
 ---
 
+# Example: Note Creation & Like Federation
 
-# Example: Being followed by two instances
+
+Our Instance `B` is being followed by instances `A` and `C`
 
 <br>
 
@@ -427,6 +401,8 @@ stateDiagram-v2
   C --> B: follows
 ```
 
+---
+layout: default
 ---
 
 # Example: Note Creation & Like Federation
