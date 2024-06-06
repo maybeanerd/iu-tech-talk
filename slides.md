@@ -151,16 +151,9 @@ You want wood and can give stone in return.
 
 ---
 layout: intro-image-right
-image: /images/gameplay/trade-meme.jpg
----
-
-# On another server, they receive your offer.
-
----
-layout: intro-image-right
 image: /images/gameplay/6_received-trade-result.png
 ---
-# They accept your offer.
+# Another instance accepts your offer.
 You now have wood!
 
 
@@ -651,6 +644,9 @@ And treat them differently from normal servers
 - Deleting a note to cancel a trade
 -->
 
+---
+layout: intro-image-right
+image: /images/gameplay/trade-meme.jpg
 ---
 
 # Trade content
