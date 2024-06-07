@@ -42,7 +42,7 @@ layout: intro
 
 
 ---
-layout: image-right
+layout: intro-image-right
 
 image: /images/basti.png
 ---
@@ -81,7 +81,7 @@ image: /images/fediverse-v1.2.png
 
 # What is the Fediverse aka. Social Web
 - A giant Network of social media services.
-- Platforms are independent but can interact with eachother.
+- Federated: Platforms are independent but can interact with eachother.
 - Users can interact with users of any platform.
 
 <!--
