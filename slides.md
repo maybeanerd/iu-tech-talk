@@ -337,7 +337,7 @@ Oh come on. What's JSON-LD now?
 
 ## JSON for Linking Data
 
-- a W3C recommendation
+- a W3C standard
 - lightweight Linked Data format
 <v-click>
 
@@ -1075,32 +1075,30 @@ Other Fediverse Services can follow our interactions, but we are selfcontained f
 -->
 
 ---
-layout: two-cols-header
----
 
-## Slides: 
+# Slides available at:
 <mdi-web  /> https://iu-tech.diluz.io
+
 <br>
-<mdi-github  /> https://github.com/maybeanerd/iu-tech-talk
+<br>
 
-## The example game:
-<mdi-github  /> https://github.com/maybeanerd/selfhosted-api-trader-game
+# Sources and further reading:
+Slides: <mdi-github  /> https://github.com/maybeanerd/iu-tech-talk
+<br>
+The example game: <mdi-github  /> https://github.com/maybeanerd/selfhosted-api-trader-game
+<br>
+The ActivityPub specification: <mdi-web  /> https://www.w3.org/TR/activitypub
 
 
-<br><br>
+<br>
 
 # You can find me on the (social) web:
 
-::left::
 
-#### <mdi-mastodon  /> @maybeanerd@bumscode.com
+
+#### <ph-fediverse-logo  /> @maybeanerd@bumscode.com
 #### <mdi-github  /> maybeanerd
-#### <mdi-linkedin  /> sebastian-di-luzio
-
-::right::
-
-#### <mdi-email  /> give-me-feedback-on-the-abusing-activity-pub-to-federate-game-servers-presentation-please@diluz.io
-#### <mdi-email  /> sebastian.di-luzio@iu.org
+#### <mdi-web  /> https://diluz.io
 
 <!--
 Thank you so much for listening, you can find me on the following platforms
