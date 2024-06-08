@@ -668,6 +668,12 @@ This way, they are aware of the existence of the note
 If and actor on instance A likes the note, it will send a LIKE activity to instance B, so that we are aware of the like as well
 
 By default, instance C is not aware of the like, but there are systems in place to allow fetching this information, if they cared about it deeply
+
+
+This is a very basic example of how activities are sent between instances, and there are far more complex flows possible that we wont be looking into today, especially with larger networks of instances
+
+
+One thing we haven't talked about yet is how we make sure that the activities we get actually come from the actors they claim to come from
 -->
 
 ---
@@ -698,6 +704,23 @@ Every actor has a public key:
 }
 ```
 
+<!--
+ActivityPub defines a way to verify the ownership of activities, by using HTTP signatures on most requests
+
+For example, when an actor wants to fetch their outbox, they need to sign the request with their private key
+
+This allows the receiving server to return only the activites the requesting actor is allowed/supposed to see
+
+Same goes for POST requests to the inbox, which need to be signed as well. This way, the receiving server can verify that the activity was actually sent by the actor that claims to have sent it
+
+To make this work, every actor adds the security context
+
+This makes sure that an actor contains their public key in PEM (Privacy Enhanced Mail) format
+
+To understand how this works in practice, let's look at the flow of a signed request
+
+-->
+
 ---
 
 # Flow of a signed request
@@ -716,6 +739,18 @@ sequenceDiagram
 
 ```
 
+<!--
+In this example, actor A1 on instance A wants to send a signed CREATE activity to actor B1 on instance B
+
+Since instance B doesn't have the public key of actor A1, it needs to fetch it first with an unsigned GET request
+
+This works, since the actor is publically available and doesnt need signed requests for access
+
+Once instance B has the public key, it can verify the signature of the activity using the public key
+
+Depending on the result, it will accept the activity, or deny it
+-->
+
 ---
 layout: statement
 ---
@@ -723,7 +758,10 @@ layout: statement
 # How do we make use of this protocol for a game?
 
 <!-- 
-Let's re-visit the game behavior and figure out how to map it to ActivityPub
+But. How do we make use of this protocol for a game? Our game is not a social media platform, we don't have posts or likes
+
+
+Let's re-visit the game behavior and figure out how to map it to ActivityPub step by step
 -->
 
 ---
