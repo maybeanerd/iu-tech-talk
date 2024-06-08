@@ -917,6 +917,20 @@ Lucky for us, ActivityPub is quite flexible, and most importantly: extendable
 ```
 ````
 
+<!--
+Let's take a look at an example actor from the game
+
+The context includes the expected activitystreams and security
+
+but we can also extend it and add our own context
+
+In this case, let's add an "isGameServer" flag
+
+It doesnt change the actual schema of the object, it just adds meta information
+
+this way, we will always know if an actor comes from a gameserver, or not
+-->
+
 ---
 
 # We can detect game servers
@@ -925,10 +939,15 @@ And treat them differently from normal servers
 - don't map their activities to game actions
 - only allow following game servers
 
-<!-- 
-- Allow others to follow, but don't map those follows to treaties
-- Ignore others likes in terms of accepted trades
-- Ignore others notes/don't follow them to start with. Only follow game servers
+<!--
+This allows us to detect game servers
+
+We can allow non-game-servers to follow our game server, but don't map those follows to treaties
+
+We can also ignore all activities they send us that we wont use, e.g. notes, or likes
+
+
+This also allows us to adjust our user experience a bit: we can disable accidental treaty requests to non-game servers
 -->
 
 ---
@@ -939,10 +958,15 @@ And treat them differently from normal servers
 - Accept a trade we got: like note
 - Take back a trade we offered: delete note
 
-<!-- 
-- Creating a note to offer a trade
-- Liking a note to accept a trade
-- Deleting a note to cancel a trade
+<!--
+With treaties done, let's look into the actual trading
+
+To represent an offered trade, we can create a note.
+this note is linked to a specific actor, and it can contain the content of the trade
+
+When a server wants to accept a trade, it can like the note, which will let the original server know that the trade has been accepted
+
+If the original creator of the trade wants to pull it back, or after a trade was accepted and we want everyone to know that it's not available anymore, we can DELETE the note
 -->
 
 ---
@@ -954,12 +978,17 @@ image: /images/gameplay/trade-meme.jpg
 
 How do we know what is being traded?
 
-<!--  We can of course encode the trade content in the note, but that will look weird on other Fediverse instances.
+<!--
+But, how do we store and convey the trade content in a note?
 
- Can we make it both readable for other instances and usable for our game? -->
+We can of course stringify the trade content JSON in the note, but that will look weird on other Fediverse instances, that will display it as a normal post.
+
+Also, encoding in a string and parsing from it is not a nice data flow, it would be great if we could just send the data as-is
+
+Can we make it both readable to users from other instances and usable for our game?
+-->
 
 ---
-
 
 # ActivityPub context is extendable: Note
 
@@ -1016,11 +1045,34 @@ How do we know what is being traded?
 }
 ```
 ````
+
+<!--
+The solution again, is extending ActivityPub
+
+If we look at this note, it says that one of our villagers requests 500 wood and offers 600 stone in return
+
+The context in this case only holds activitystreams, but we can again add our own.
+
+Let's add both isGameServer (this is nice to know on all our activities), but also another one: gameContent
+
+As you can see, we cannot only add a general context, we can also define context for a single attribute
+
+In this case, we define that the note also has a gameContent property, which we can fill with our actual trade context
+
+It holds an array of requested resources, and one of the offered ones
+
+And if you compare the content and gameContent, we now have a human readable versions for the wider fediverse, and an internal version that is easy for us to use in the game servers
+-->
+
 ---
 
 # And with that, we are federated.
 
-<!-- Other Services can follow our interactions, but we are selfcontained for game specific logic -->
+<!--
+An with that, all cooperative and interactive actions between servers are federated.
+
+Other Fediverse Services can follow our interactions, but we are selfcontained for game specific logic
+-->
 
 ---
 layout: two-cols-header
@@ -1041,3 +1093,10 @@ layout: two-cols-header
 <br>
 
 #### <mdi-email class="text-4" /> sebastian.di-luzio@iu.org
+
+<!--
+Thank you so much for listening, you can find me on the following platforms
+
+
+Any questions
+-->
