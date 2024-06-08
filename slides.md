@@ -1078,21 +1078,29 @@ Other Fediverse Services can follow our interactions, but we are selfcontained f
 layout: two-cols-header
 ---
 
-# You can find me on the (social) web
+## Slides: 
+<mdi-web  /> https://iu-tech.diluz.io
+<br>
+<mdi-github  /> https://github.com/maybeanerd/iu-tech-talk
+
+## The example game:
+<mdi-github  /> https://github.com/maybeanerd/selfhosted-api-trader-game
+
+
+<br><br>
+
+# You can find me on the (social) web:
 
 ::left::
 
-#### <mdi-mastodon class="text-4" /> @maybeanerd@bumscode.com
-#### <mdi-github class="text-4" /> maybeanerd
-#### <mdi-web class="text-4" /> https://diluz.io
-#### <mdi-linkedin class="text-4" /> sebastian-di-luzio
+#### <mdi-mastodon  /> @maybeanerd@bumscode.com
+#### <mdi-github  /> maybeanerd
+#### <mdi-linkedin  /> sebastian-di-luzio
 
 ::right::
 
-#### <mdi-email class="text-4" /> give-me-feedback-on-the-abusing-activity-pub-to-federate-game-servers-presentation-please@diluz.io
-<br>
-
-#### <mdi-email class="text-4" /> sebastian.di-luzio@iu.org
+#### <mdi-email  /> give-me-feedback-on-the-abusing-activity-pub-to-federate-game-servers-presentation-please@diluz.io
+#### <mdi-email  /> sebastian.di-luzio@iu.org
 
 <!--
 Thank you so much for listening, you can find me on the following platforms
