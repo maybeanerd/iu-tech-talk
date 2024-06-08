@@ -65,12 +65,29 @@ image: /images/basti.png
 - ActivityPub
 - Making the game work with ActivityPub
 
+<!--
+We will talk about the Fediverse in general.
+
+I'll give you an overview of the example game we're looking at for this talk
+
+We will dive into ActivityPub itself
+
+And we will find out how to federate the example gaming using ActivityPub
+-->
+
 ---
 layout: intro-image-right
 image: /images/fediverse-logo.png
 ---
 
 # The Fediverse
+
+<!--
+So, what is The Fediverse?
+
+On the right side, you can see the logo of the Fediverse, which you might have seen somewhere before
+
+-->
 
 
 ---
@@ -85,9 +102,22 @@ image: /images/fediverse-v1.2.png
 - Users can interact with users of any platform.
 
 <!--
-examples:
-- Mastodon, which is similar to Twitter
-- Pixelfed, which is similar to Instagram
+The Fediverse is also called the Social Web
+
+It's a giant network of social media services that are federated using ActivityPub
+
+Federation means that the platforms are independent, but can interact with eachother
+
+This also means that users can interact with users of any platform that is part of the Fediverse
+
+<br>
+
+On the right side, you can see a diagram of the Fediverse, showing the different platforms that exist
+
+For example:
+- Mastodon, which is a microblogging platform similar to Twitter
+- Pixelfed, which is a image sharing platform similar to Instagram
+- PeerTube, which is a video sharing platform similar to YouTube
 -->
 
 ---
@@ -101,7 +131,15 @@ I thought to myself
 # I want to build something based on this!
 </div>
 
+<!--
+After encountering the Fediverse the first time, I thought to myself:
 
+Huh, that sounds cool.
+
+I want to build something based on this!
+
+And what I ended up building, was a game.
+-->
 ---
 
 # The premise of the game
@@ -110,9 +148,9 @@ I thought to myself
 
 - Your task is to build up your village
 - You need resources to build
-- You can generate a specific resource set based on your occupation
+- You can generate specific resources based on your occupation
   - e.g. a miner generates stone, coal, iron, etc.
-- To progress you need resources you can't generate yourself
+- To progress you also need resources you can't generate yourself
 - You can trade with other players to get those resources
 
 </v-clicks>
@@ -121,41 +159,99 @@ I thought to myself
 ## Through Federation ✨
 </div>
 
+<!--
+The premise of the game is quite simple:
+
+Your task is to build up your village
+
+And you need resources to do so
+
+You can only generate specific resources based on your occupation, so e.g. if you're a miner, you can generate stone, coal, iron, and similar resources
+
+But, to progress in the game, you will also need resources you can't generate yourself
+
+And that's where trading comes in: You can trade with other players to get those resources
+
+
+The twist is that this happens across multiple servers, and works through Federation
+-->
+
 ---
 layout: intro-image-right
 image: /images/gameplay/0_resources.png
 ---
-# You're a miner.
-You generate stone, but no wood.
+# We're a miner.
+We generate stone, but no wood.
+
+<!--
+Let's look at an example gameplay flow of trading resources between two instances
+
+
+In this case, we're a miner.
+
+We generate stone, but no wood or leather. We have zero wood and zero leather, but 124 thousand stone available.
+
+For the next upgrade, we need 500 wood, so we want to trade for that.
+
+-->
 
 ---
 layout: intro-image-right
 image: /images/gameplay/1_propose-treaty.png
 ---
-# To start trading, you need to sign a treaty.
-You can propose a treaty to a game server you trust.
+# To start trading, we need to sign a treaty.
+We can propose a treaty to a game server we trust.
+
+<!--
+But before we can start trading, we need to sign a treaty with another server.
+
+Treaties are a way to agree on mututal trading with a trusted server.
+
+In our case, we know a friend who can generate wood on the test.game.diluz.io server, which we will ask for a treaty
+
+-->
 
 ---
 layout: intro-image-right
 image: /images/gameplay/2_accepted-treaty.png
 ---
 # The other server accepted the treaty.
-You allow connections to this server.
+We allow trades to and from this server.
+
+<!--
+Once the other server accepted the treaty, we can see a treaty in our list that has the status "signed"
+
+This means we have agreed on trading with eachother, and will send and receive trades to and from this server
+
+-->
 
 ---
 layout: intro-image-right
 image: /images/gameplay/3_propose-trade.png
 ---
-# You propose a trade.
-You want wood and can give stone in return.
+# We propose a trade.
+We want wood and can give stone in return.
+
+<!--
+Since we need wood, we propose a trade where we request 500 wood and offer 600 stone in return
+
+We submit this trade, and all servers that have a treaty with us will see this trade
+
+Once another server receives it, they can choose to accept the trade
+-->
 
 ---
 layout: intro-image-right
 image: /images/gameplay/6_received-trade-result.png
 ---
-# Another instance accepts your offer.
-You now have wood!
+# Another instance accepts our offer.
+We now have wood!
 
+<!--
+In our case, the trade was accepted, and we now have 500 wood available in addition to the stone we already had!
+
+We can now use this wood to further upgrade our village
+-->
 
 ---
 
@@ -163,6 +259,12 @@ You now have wood!
 <br>
 
 ## How do we make this part of the Fediverse?
+
+<!--
+Okay, now we know the basics of the cooperative part of the game
+
+How does this fit into the Fediverse though? It's not like we're a social media platform
+-->
 
 ---
 
@@ -179,20 +281,53 @@ You now have wood!
 <v-click>
 
 ## It also:
-- Defines an open federation protocol & behavior
+- Defines an open federation protocol
 - Defines a client-server API
 - Defines federated server-to-server API
 - Is based on ActivityStreams
 
 </v-click>
 
+<!--
+Well, first we need to understand how the Fediverse works under the hood.
+
+It's powered by ActivityPub, so we need to understand what that is
+
+First and foremost ActivityPub is a W3C standard which was finalized in 2018
+
+For those of you who don't know, the W3C is the World Wide Web Consortium, which defines and maintains standards like HTML, CSS, XML, WebAssembly, WebRTC, and many more
+
+And ActivityPub is one of those standards
+
+It defines an open federation protocol
+
+It defines a client to server API
+
+But it also defines a federated server to server API, which is what's most interesting to us
+
+And it is, under the hood, based on ActivityStreams
+
+Now, this raises the question: What are ActivityStreams?
+-->
+
 ---
 
 # ActivityStreams (2.0)
 
 - Also a W3C standard
-- Specifies underlying schemata used in ActivityPub
+- Specifies underlying schemas used in ActivityPub
 - is implemented as JSON-LD
+
+<!--
+ActivityStreams is also a W3C standard
+
+It specifies the underlying schemas that are used in ActivityPub
+
+And it is implemented as JSON-LD
+
+
+Oh come on. What's JSON-LD now?
+-->
 
 ---
 
@@ -209,6 +344,18 @@ You now have wood!
 ## Linked Data
 A way to create a network of standards-based, machine-readable data across Web sites
 </v-click>
+
+<!--
+JSON-LD is JSON for Linking Data
+
+It's a W3C recommendation, and a lightweight Linked Data format
+
+
+Linked Data is a way to create a network of standards-based, machine-readable data across Web sites by linking data to eachother
+
+
+This sounds super complex, so let's look at an example to make this less abstract
+-->
 
 
 ---
@@ -261,6 +408,24 @@ https://json-ld.org/contexts/person.jsonld:
 
 </v-click>
 
+<!--
+Here we have an JSON-LD object that represents the person John Lennon
+
+It has an ID which is a link that will return the object we're looking at
+
+It also has a name, a birthdate, and a spouse
+
+Looking at the spouse, it is again a link to an object, which is a good example of how Linked Data works
+
+Looking at the context, we see another link: If points to the JSON-LD object on the right.
+
+The context defines the schema that is used in the JSON-LD object,
+and we can see that when we look at the name, born, and spouse properties of it,
+which describe exactly what we saw earlier in the john lennon object
+
+
+Now that we have a rough idea of JSON-LD, let's look at ActivityStreams again
+-->
 
 ---
 
@@ -273,6 +438,17 @@ They are encompass almost everything that exists within ActivityStreams
 - Actors
 - Collections
 - ...
+
+<!--
+ActivityStreams defines an Object
+
+The object can have many different types, and encompasses almost everything that exists within ActivityStreams
+
+These types include things like Activities, Notes, Actors, Collections, and a few more
+
+Let's go through the most important ones, starting with Activities
+
+-->
 
 ---
 
@@ -291,13 +467,21 @@ Represents an action that has taken place
 ```
 
 <!--
-types:
-- Create
-- Update
-- Delete
-- Follow
-- Like
-- Accept
+ActivityStreams activities represent an action that has taken place
+
+In this example, we can see the activitystreams context, which will be part of all activitystreams objects
+
+We see an ID which points to the activity itself
+
+The type of the activity is "Create", which means that a new object has been created
+
+But the type can also be "Update", "Delete", "Follow", "Like" or "Accept"
+
+The actor is the one who performed the action, and the object is the object that the action was performed on.
+
+So, in this example, the actor created a new note, and the object links to that note.
+
+Let's talk about notes then!
 -->
 
 ---
@@ -313,9 +497,23 @@ They are what you would call a "post" on a social media platform
   "type": "Note",
   "content": "Hello world!",
   "attributedTo": "http://example.org/actors/1",
+  ...
 }
 ```
 
+<!--
+Notes are what you would call a "post" on a social media platform
+
+They contain content you want to share with other users
+
+Again, we have the activitystreams context, the ID of the note, and the type, which is "Note"
+
+We also have the content of the note, which in this case is "Hello world!"
+
+And we have the attributedTo property, which links to the actor that owns the note
+
+Speaking about actors, let's look at them next
+-->
 ---
 
 # ActivityStreams: Actor
@@ -332,11 +530,24 @@ Represents a "User"
   "preferredUsername": "Basti",
   "inbox": "http://example.org/actors/1/inbox",
   "outbox": "http://example.org/actors/1/outbox",
+  ...
 }
 ```
 
 <!--
-One per server, or many per server
+An actor represents a "User" in the Fediverse
+
+There can be one actor per server, or many per server
+
+The object has the activitystreams context, an ID, and the type, which is "Person" in this case
+
+They can be a person, but also an application, a group, an organization, or a service. E.g. applications and services would be marked as bot users in some platforms, while groups and organizations imply that there is more than one user behind the actor
+
+
+
+They also have a name and a preferred username which is used in UIs
+
+And most importantly, an inbox and an outbox
 -->
 
 ---
@@ -348,7 +559,17 @@ One per server, or many per server
 - Outbox: where activities can be retrieved from
 - They are `OrderedCollection`s
 
+<!--
+As the name implies, the inbox is where activities are sent to.
 
+If you want to send an activity to another actor, you would send it to their inbox
+
+The outbox is where activities can be retrieved from
+
+If you want to fetch the activities of another actor, you would fetch them from their outbox
+
+Both the inbox and the outbox are `OrderedCollection`s
+-->
 ---
 
 # ActivityStreams: (Ordered) Collections
@@ -378,6 +599,16 @@ Outbox:
 }
 ```
 
+<!--
+OrderedCollections are - in this case - chronologically ordered lists of activities
+
+They contain meta information like the total number of items in the collection, and of course the items themselves
+
+In this example, we see an OrderedCollection that represents Basti's activity feed, which contains two CREATE activities
+
+
+Now that we have a rough idea of what ActivityStreams is, let's look at ActivityPub, and an example flow of activities between instances
+-->
 
 ---
 layout: default
@@ -401,6 +632,13 @@ stateDiagram-v2
   C --> B: follows
 ```
 
+<!--
+In this example, we are on instance B
+
+We are being followed by instances A and C
+
+-->
+
 ---
 layout: default
 ---
@@ -421,6 +659,16 @@ sequenceDiagram
   Note over C: By default, C is not aware of the like. Could fetch it, if wanted
 
 ```
+
+<!--
+If we now create a note on instance B, this note will be sent to instance A and instance C
+
+This way, they are aware of the existence of the note
+
+If and actor on instance A likes the note, it will send a LIKE activity to instance B, so that we are aware of the like as well
+
+By default, instance C is not aware of the like, but there are systems in place to allow fetching this information, if they cared about it deeply
+-->
 
 ---
 
