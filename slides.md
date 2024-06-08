@@ -773,12 +773,24 @@ Let's re-visit the game behavior and figure out how to map it to ActivityPub ste
 - Accepting a treaty: follow back
 - Suspending a treaty: unfollow
 
-<!-- 
+<!--
+Step 1 of federation is to be able to sign a treaty with another server
+
+This is actually quite intuitive, since we can map following to treaty signing
+
 - Every game server has a single actor called `merchant`
-- To propose a treaty to an instance, you follow its actor
-- Following back "signs" the treaty
-- Any actor unfollowing suspends the treaty
-- ActivityPub does not define a way to find actors
+- To propose a treaty to an instance, we follow its actor
+This way the other instance is already notified and knows about the treaty proposal
+- To sign/accept a treaty, we follow back. This also notifies the other instance, so both are aware of the treaties state
+- To suspend a treaty, all we need to do is unfollow. Unfollowing is also already a federated actitivity (in reality, we UNDO the FOLLOW)
+
+One thing that we are missing here though, is the ability to find another instances actor.
+
+Sure, we could hardcode an actor ID or API path, but there must already be a solution to this as part of ActivityPub, right?
+
+Actually, no. ActivityPub does not define a way to find actors without knowing their IDs
+
+But, there IS a solution
 -->
 
 ---
@@ -811,6 +823,22 @@ GET `https://example.org/.well-known/webfinger?resource=acct:merchant@example.or
 
 </v-click>
 
+<!--
+The solution is Webfinger.
+
+It's NOT part of ActivityPub, but it's the de-facto standard to find actors based on e.g. usernames within the fediverse
+
+It defines an API on .well-known/webfinger which allows us to search for a username+instance name combination
+
+The returned value gives us back both our search term, as well as a list if references to actor representations of that user, if one was found.
+
+In our case we care about the application/activity+json version, which links directly to the actor object.
+
+As we can see here, the actors ID itself is not hardcoded, but a UUID.
+
+This also enables users on other instances than game servers, such as mastodon e.g. to find our actors.
+-->
+
 ---
 layout: statement
 ---
@@ -821,12 +849,23 @@ layout: statement
 
 ## We want to allow them to follow our activities, but don't really care about theirs
 
+<!--
+But, what about normal activity Pub servers? 
+
+We want them to be able to follow our activities, but we dont really want their activities to end up changing game logic, as they arent intended as gameplay actions
+
+How can we figure out if an activityPub instances is a gameserver?
+-->
+
 ---
 layout: statement
 ---
 
 # ActivityPub is extendable
 
+<!--
+Lucky for us, ActivityPub is quite flexible, and most importantly: extendable
+-->
 
 ---
 
