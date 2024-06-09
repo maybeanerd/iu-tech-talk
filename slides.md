@@ -257,9 +257,21 @@ We want wood and can give stone in return.
 <!--
 Since we need wood, we propose a trade where we request 500 wood and offer 600 stone in return
 
+
+-->
+
+---
+layout: intro-image-right
+image: /images/gameplay/trade-meme.jpg
+---
+
+# All servers we have signed treaties with can see the trade.
+And any user on those servers can accept, if they have the necessary resources.
+
+<!--
 We submit this trade, and all servers that have a treaty with us will see this trade
 
-Once another server receives it, they can choose to accept the trade
+Once another server receives it, any user on it can choose to accept the trade
 -->
 
 ---
@@ -980,6 +992,7 @@ This also allows us to adjust our user experience a bit: we can disable accident
 - Offer a trade: create note
 - Accept a trade we got: like note
 - Take back a trade we offered: delete note
+- But how do we encode the trade information in the note?
 
 <!--
 With treaties done, let's look into the actual trading
@@ -990,23 +1003,8 @@ this note is linked to a specific actor, and it can contain the content of the t
 When a server wants to accept a trade, it can like the note, which will let the original server know that the trade has been accepted
 
 If the original creator of the trade wants to pull it back, or after a trade was accepted and we want everyone to know that it's not available anymore, we can DELETE the note
--->
 
----
-layout: intro-image-right
-image: /images/gameplay/trade-meme.jpg
----
-
-# Trade content
-
-How do we know what is being traded?
-
-<!--
-But, how do we store and convey the trade content in a note?
-
-We can of course stringify the trade content JSON in the note, but that will look weird on other Fediverse instances, that will display it as a normal post, and it will also be annoying to parse for us
-
-Can we make it both readable to users from other instances and usable for our game?
+But how do we encode the trade information in the note? We could of course stringify the JSON data, but that will be unreadable to normal users and just not interesting to look at.
 -->
 
 ---
