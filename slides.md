@@ -973,7 +973,7 @@ this way, we will always know if an actor comes from a gameserver, or not
 # We can detect game servers
 And treat them differently from normal servers
 
-- don't map their activities to game actions
+- don't map normal servers activities to game actions
 - only allow following game servers
 
 <!--
