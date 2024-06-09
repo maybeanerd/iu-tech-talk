@@ -122,19 +122,17 @@ image: /images/fediverse-v1.2.png
 - Users can interact with users of any platform.
 
 <!--
-The Fediverse is also called the Social Web
+The Fediverse -> Social Web
 
-It's a giant network of social media services that are federated using ActivityPub
+giant network of social media services, federated using ActivityPub
 
-Federation means that the platforms are independent, but can interact with eachother
+Federation: platforms independent, but can interact with eachother
 
 This also means that users can interact with users of any platform that is part of the Fediverse
 
-<br>
+right side: diagram of the Fediverse, showing different platforms that exist
 
-On the right side, you can see a diagram of the Fediverse, showing the different platforms that exist
-
-For example:
+examples:
 - Mastodon, which is a microblogging platform similar to Twitter
 - Pixelfed, which is a image sharing platform similar to Instagram
 - PeerTube, which is a video sharing platform similar to YouTube
@@ -368,7 +366,7 @@ A way to create a network of standards-based, machine-readable data across Web s
 <!--
 JSON-LD is JSON for Linking Data
 
-It's a W3C recommendation, and a lightweight Linked Data format
+It's a W3C standard, and a lightweight Linked Data format
 
 
 Linked Data is a way to create a network of standards-based, machine-readable data across Web sites by linking data to eachother
@@ -376,7 +374,6 @@ Linked Data is a way to create a network of standards-based, machine-readable da
 
 This sounds super complex, so let's look at an example to make this less abstract
 -->
-
 
 ---
 layout: two-cols-header
@@ -449,9 +446,14 @@ Now that we have a rough idea of JSON-LD, let's look at ActivityStreams again
 
 ---
 
-# ActivityStreams: Object
+# ActivityStreams: General context
 
-They are encompass almost everything that exists within ActivityStreams
+```json
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  ...
+}
+```
 
 - Activities
 - Notes
@@ -796,8 +798,7 @@ Let's re-visit the game behavior and figure out how to map it to ActivityPub ste
 <!--
 Step 1 of federation is to be able to sign a treaty with another server
 
-This is actually quite intuitive, since we can map following to treaty signing
-
+This is intuitive, since we can map following to treaty signing
 - Every game server has a single actor called `merchant`
 - To propose a treaty to an instance, we follow its actor
 This way the other instance is already notified and knows about the treaty proposal
@@ -808,9 +809,7 @@ One thing that we are missing here though, is the ability to find another instan
 
 Sure, we could hardcode an actor ID or API path, but there must already be a solution to this as part of ActivityPub, right?
 
-Actually, no. ActivityPub does not define a way to find actors without knowing their IDs
-
-But, there IS a solution
+Actually, no
 -->
 
 ---
@@ -850,7 +849,7 @@ It's NOT part of ActivityPub, but it's the de-facto standard to find actors base
 
 It defines an API on .well-known/webfinger which allows us to search for a username+instance name combination
 
-The returned value gives us back both our search term, as well as a list if references to actor representations of that user, if one was found.
+It returns a list of references to actor representations of that user, if one was found.
 
 In our case we care about the application/activity+json version, which links directly to the actor object.
 
@@ -1001,9 +1000,7 @@ How do we know what is being traded?
 <!--
 But, how do we store and convey the trade content in a note?
 
-We can of course stringify the trade content JSON in the note, but that will look weird on other Fediverse instances, that will display it as a normal post.
-
-Also, encoding in a string and parsing from it is not a nice data flow, it would be great if we could just send the data as-is
+We can of course stringify the trade content JSON in the note, but that will look weird on other Fediverse instances, that will display it as a normal post, and it will also be annoying to parse for us
 
 Can we make it both readable to users from other instances and usable for our game?
 -->
@@ -1069,11 +1066,11 @@ Can we make it both readable to users from other instances and usable for our ga
 <!--
 The solution again, is extending ActivityPub
 
-If we look at this note, it says that one of our villagers requests 500 wood and offers 600 stone in return
+The note says that one of our villagers requests 500 wood and offers 600 stone in return
 
-The context in this case only holds activitystreams, but we can again add our own.
+The context in this case only holds activitystreams
 
-Let's add both isGameServer (this is nice to know on all our activities), but also another one: gameContent
+Let's add both isGameServer, but also another one: gameContent
 
 As you can see, we cannot only add a general context, we can also define context for a single attribute
 
