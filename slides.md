@@ -81,9 +81,9 @@ image: /images/basti.png
 # We will talk about
 
 - The Fediverse
-- Overview of the example game
-- Overview of ActivityPub
-- Making the game work with ActivityPub
+- An example game
+- ActivityPub
+- Federating the game
 
 <!--
 We will talk about the Fediverse in general.
@@ -104,7 +104,7 @@ image: /images/fediverse-logo.png
 Also known as "The Social Web"
 
 
-A giant Network of social media services federated by ActivityPub
+A giant Network of social media services
 
 
 <!--
