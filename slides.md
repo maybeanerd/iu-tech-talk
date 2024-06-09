@@ -11,9 +11,10 @@ favicon: /images/fediverse-logo.png
 drawings:
   persist: false
 mdc: true
-transition: slide-left
+transition: none
 defaults:
   layout: quote
+  transition: slide-left
 
 download: true
 exportFilename: abusing-activity-pub-to-federate-game-servers-iu-tech-2024
@@ -27,6 +28,26 @@ export:
   withClicks: true
   withToc: false
 
+layout: intro
+---
+
+# Abusing ActivityPub to federate game servers
+
+## A deeper look into what powers the Social Web.
+
+<div class="absolute bottom-10">
+  <span class="font-700">
+   iu.tech 2024
+  </span>
+</div>
+
+<div class="absolute bottom-10 right-5">
+  <span class="font-700">
+   .
+  </span>
+</div>
+
+---
 layout: intro
 ---
 
@@ -62,7 +83,7 @@ image: /images/basti.png
 
 - The Fediverse
 - Overview of the example game
-- ActivityPub
+- Overview of ActivityPub
 - Making the game work with ActivityPub
 
 <!--
