@@ -101,14 +101,21 @@ image: /images/fediverse-logo.png
 ---
 
 # The Fediverse
+Also known as "The Social Web"
+
+
+A giant Network of social media services federated by ActivityPub
+
 
 <!--
 So, what is The Fediverse?
 
-On the right side, you can see the logo of the Fediverse, which you might have seen somewhere before
+The Fediverse -> Social Web
 
+On the right side, you can see the logo of the Fediverse
+
+giant network of social media services
 -->
-
 
 ---
 layout: intro-image-right
@@ -116,16 +123,13 @@ layout: intro-image-right
 image: /images/fediverse-v1.2.png
 ---
 
-# What is the Fediverse aka. Social Web
-- A giant Network of social media services.
+# Fediverse: Overview
+
 - Federated: Platforms are independent but can interact with eachother.
 - Users can interact with users of any platform.
+- powered by ActivityPub
 
 <!--
-The Fediverse -> Social Web
-
-giant network of social media services, federated using ActivityPub
-
 Federation: platforms independent, but can interact with eachother
 
 This also means that users can interact with users of any platform that is part of the Fediverse
