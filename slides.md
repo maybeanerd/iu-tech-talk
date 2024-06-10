@@ -811,8 +811,12 @@ Let's re-visit the game behavior and figure out how to map it to ActivityPub ste
 - Accepting a treaty: follow back
 - Suspending a treaty: unfollow
 
+<v-click>
+
 ## Open Question:
 - How do we find the actors of servers?
+
+</v-click>
 
 <!--
 Step 1 of federation is to be able to sign a treaty with another server
@@ -998,8 +1002,12 @@ This also allows us to adjust our user experience a bit: we can disable accident
 - Accept a trade we got: like note
 - Take back a trade we offered: delete note
 
+<v-click>
+
 ## Open Question:
 - How do we encode the trade information in the note?
+
+</v-click>
 
 <!--
 With treaties done, let's look into the actual trading
