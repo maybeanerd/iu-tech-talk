@@ -1,4 +1,4 @@
-# Welcome to my talk on the iu.tech 2024!
+# Welcome to my talk "Abusing ActivityPub to federate game servers"
 
 This talk focuses on the following repository:
 https://github.com/maybeanerd/selfhosted-api-trader-game

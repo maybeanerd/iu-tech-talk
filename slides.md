@@ -17,7 +17,7 @@ defaults:
   transition: slide-left
 
 download: true
-exportFilename: abusing-activity-pub-to-federate-game-servers-iu-tech-2024
+exportFilename: abusing-activity-pub-to-federate-game-servers
 # export options
 # use export CLI options in camelCase format
 # Learn more: https://sli.dev/guide/exporting.html
@@ -35,11 +35,7 @@ layout: intro
 
 ## A deeper look into what powers the Social Web.
 
-<div class="absolute bottom-10">
-  <span class="font-700">
-   iu.tech 2024
-  </span>
-</div>
+
 
 <div class="absolute bottom-10 right-5">
   <span class="font-700">
@@ -54,27 +50,6 @@ layout: intro
 # Abusing ActivityPub to federate game servers
 
 ## A deeper look into what powers the Social Web.
-
-<div class="absolute bottom-10">
-  <span class="font-700">
-   iu.tech 2024
-  </span>
-</div>
-
-
----
-layout: intro-image-right
-
-image: /images/basti.png
----
-
-# Who am I?
-<br>
-
-## Sebastian Di Luzio
-- Senior Software Engineer <br>in Team Foundation (EduTech)
-- Joined IU end of 2021
-- Spend far too much of my free time on side projects
 
 ---
 
@@ -1111,13 +1086,13 @@ Other Fediverse Services can follow our interactions, but we are selfcontained f
 ---
 
 # Slides available at:
-<mdi-web  /> https://iu-tech.diluz.io
+<mdi-web  /> https://activitypub.diluz.io
 
 <br>
 <br>
 
 # Sources and further reading:
-Slides: <mdi-github  /> https://github.com/maybeanerd/iu-tech-talk
+Slides: <mdi-github  /> https://github.com/maybeanerd/activitypub-talk
 <br>
 The example game: <mdi-github  /> https://github.com/maybeanerd/selfhosted-api-trader-game
 <br>
