@@ -1062,7 +1062,9 @@ And if you compare the content and gameContent, we now have a human readable ver
 -->
 
 ---
-
+layout: intro-image-right
+image: /images/mastodon/mastodon-profile.png
+---
 # And with that, we are federated.
 
 <!--
