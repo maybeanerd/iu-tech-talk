@@ -16,18 +16,6 @@ defaults:
   layout: quote
   transition: slide-left
 
-download: true
-exportFilename: abusing-activity-pub-to-federate-game-servers
-# export options
-# use export CLI options in camelCase format
-# Learn more: https://sli.dev/guide/exporting.html
-export:
-  format: pdf
-  timeout: 30000
-  dark: true
-  withClicks: true
-  withToc: false
-
 layout: intro
 ---
 
